@@ -4,8 +4,8 @@ import { UserSignUp } from "../../redux/actions/userAction";
 
 const Sign = () => {
   const dispatch = useDispatch();
-  const [firstname, setFirstName] = useState('');
-  const [lastname, setLastName] = useState('');
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const passwordHandler = () => setPassword(!password);
@@ -25,7 +25,7 @@ const Sign = () => {
                 type="name"
                 onChange={(e) => setFirstName(e.target.value)}
                 placeholder=""
-                value={firstname}
+                value={firstName}
                 required
               />
             </div>
@@ -37,6 +37,8 @@ const Sign = () => {
                 type="name"
                 onChange={(e) => setLastName(e.target.value)}
                 placeholder=""
+                value={lastName}
+
                 required
               />
             </div>
@@ -76,8 +78,8 @@ const Sign = () => {
             <button
               className="theme-btn-one w-100 mt-50 mb-50"
               onClick={() => dispatch(UserSignUp({
-                firstname,
-                lastname,
+                firstName,
+                lastName,
                 email,
                 password
               }))}
