@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const Config = axios.create({
-  baseURL: "https://api.yogjyotish.com",
+  baseURL: "http://localhost:3001",
 });
 
 export default Config; 
