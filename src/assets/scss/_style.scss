@@ -13054,3 +13054,26 @@ padding-left: 0;
   height: 30px;
   margin-top: 6px;
 }
+.price-list{
+  padding-left: 0;
+  margin-top: 2rem;
+}
+.price-list li{
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+.price-div{
+  background-color: #e5e5e536;
+  height: 100vh;
+}
+.price-div .card{
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  border: 0;
+}
+.profile-details input{
+  width: 100%;
+    /* padding: 0.8px; */
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    padding: 1rem;
+}

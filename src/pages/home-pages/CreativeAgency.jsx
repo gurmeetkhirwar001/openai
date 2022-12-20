@@ -6,24 +6,29 @@ import FromStyleOne from "../../components/common/contact/FromStyleOne";
 import CopyrightFooter from "../../components/common/footer/CopyrightFooter";
 import FooterMenuList from "../../components/common/footer/FooterMenuList";
 import Seo from "../../components/common/seo/Seo";
-import AddressBlock from "../../components/creative-agency/AddressBlock";
-import CounterUp from "../../components/creative-agency/CounterUp";
 import FeatureSection from "../../components/creative-agency/FeatureSection";
 import NumberSection from "../../components/creative-agency/NumberSection";
 import Faq from "../../components/creative-agency/Faq";
 
-import FeatureSectionFour from "../../components/creative-agency/FeatureSectionFour";
-import FeedbackSlider from "../../components/creative-agency/FeedbackSlider";
-import FeedbackSliderFour from "../../components/creative-agency/FeedbackSliderFour";
-import FooterSubscribe from "../../components/creative-agency/FooterSubscribe";
 import Header from "../../components/creative-agency/Header";
-import HeroBanner from "../../components/creative-agency/HeroBanner";
-import PartnersLogo from "../../components/creative-agency/PartnersLogo";
-import TextBlockOne from "../../components/creative-agency/TextBlockOne";
 import Computer from "../../assets/images/icon/computer.png";
 import Sit from "../../assets/images/icon/siting.png";
 import Img3 from "../../assets/images/icon/img3.svg";
-import Sqlimage from "../../assets/images/icon/sql.jfif";
+import Img1 from "../../assets/images/question/timecomplex.png";
+import Img2 from "../../assets/images/question/ExplainCode.png";
+import Img4 from "../../assets/images/question/Java.png";
+import Img5 from "../../assets/images/question/JavaScripttoPython.png";
+import Img6 from "../../assets/images/question/PandastoPySpark.png";
+import Img7 from "../../assets/images/question/ParseUnstructuredData.png";
+import Img8 from "../../assets/images/question/Playground.png";
+import Img9 from "../../assets/images/question/PythonBugfixer.png";
+import Img10 from "../../assets/images/question/PythonDocstring.png";
+import Img11 from "../../assets/images/question/Python.png";
+import Img12 from "../../assets/images/question/Scala.png";
+import Img13 from "../../assets/images/question/SQL.png";
+import Img14 from "../../assets/images/question/Summarizer.png";
+import Img15 from "../../assets/images/question/timecomplex.png";
+import Img16 from "../../assets/images/question/language.png";
 
 const CreativeAgency = () => {
   return (
@@ -134,7 +139,245 @@ const CreativeAgency = () => {
         </div>
         <div className="row align-items-center mb-75 lg-mb-50 md-mb-20 mt-40">
           <div className="col-xl-9 col-lg-9">
-            <img src={Sqlimage} />
+            <img src={Img1} />
+          </div>
+          {/* End .col */}
+
+          <div className="col-lg-3 ms-auto">
+            <ul className="skills">
+              <li>SQL</li>
+              <li>NOSQL</li>
+              <li>JOINS</li>
+              <li>AGGREGATE</li>
+              <li>STORED PROCEDURE</li>
+              <li>VIEW</li>
+            </ul>
+          </div>
+        </div>
+        <div className="row align-items-center mb-75 lg-mb-50 md-mb-20 mt-40">
+          {/* End .col */}
+
+          <div className="col-lg-3 ms-auto">
+            <ul className="skills">
+              <li>SQL</li>
+              <li>NOSQL</li>
+              <li>JOINS</li>
+              <li>AGGREGATE</li>
+              <li>STORED PROCEDURE</li>
+              <li>VIEW</li>
+            </ul>
+          </div>
+          <div className="col-xl-9 col-lg-9">
+            <img src={Img2} />
+          </div>
+        </div>
+        <div className="row align-items-center mb-75 lg-mb-50 md-mb-20 mt-40">
+          <div className="col-xl-9 col-lg-9">
+            <img src={Img4} />
+          </div>
+          {/* End .col */}
+
+          <div className="col-lg-3 ms-auto">
+            <ul className="skills">
+              <li>SQL</li>
+              <li>NOSQL</li>
+              <li>JOINS</li>
+              <li>AGGREGATE</li>
+              <li>STORED PROCEDURE</li>
+              <li>VIEW</li>
+            </ul>
+          </div>
+        </div>
+        <div className="row align-items-center mb-75 lg-mb-50 md-mb-20 mt-40">
+          {/* End .col */}
+
+          <div className="col-lg-3 ms-auto">
+            <ul className="skills">
+              <li>SQL</li>
+              <li>NOSQL</li>
+              <li>JOINS</li>
+              <li>AGGREGATE</li>
+              <li>STORED PROCEDURE</li>
+              <li>VIEW</li>
+            </ul>
+          </div>
+          <div className="col-xl-9 col-lg-9">
+            <img src={Img5} />
+          </div>
+        </div>
+        <div className="row align-items-center mb-75 lg-mb-50 md-mb-20 mt-40">
+          <div className="col-xl-9 col-lg-9">
+            <img src={Img6} />
+          </div>
+          {/* End .col */}
+
+          <div className="col-lg-3 ms-auto">
+            <ul className="skills">
+              <li>SQL</li>
+              <li>NOSQL</li>
+              <li>JOINS</li>
+              <li>AGGREGATE</li>
+              <li>STORED PROCEDURE</li>
+              <li>VIEW</li>
+            </ul>
+          </div>
+        </div>
+        <div className="row align-items-center mb-75 lg-mb-50 md-mb-20 mt-40">
+          {/* End .col */}
+
+          <div className="col-lg-3 ms-auto">
+            <ul className="skills">
+              <li>SQL</li>
+              <li>NOSQL</li>
+              <li>JOINS</li>
+              <li>AGGREGATE</li>
+              <li>STORED PROCEDURE</li>
+              <li>VIEW</li>
+            </ul>
+          </div>
+          <div className="col-xl-9 col-lg-9">
+            <img src={Img7} />
+          </div>
+        </div>
+        <div className="row align-items-center mb-75 lg-mb-50 md-mb-20 mt-40">
+          <div className="col-xl-9 col-lg-9">
+            <img src={Img8} />
+          </div>
+          {/* End .col */}
+
+          <div className="col-lg-3 ms-auto">
+            <ul className="skills">
+              <li>SQL</li>
+              <li>NOSQL</li>
+              <li>JOINS</li>
+              <li>AGGREGATE</li>
+              <li>STORED PROCEDURE</li>
+              <li>VIEW</li>
+            </ul>
+          </div>
+        </div>
+        <div className="row align-items-center mb-75 lg-mb-50 md-mb-20 mt-40">
+          {/* End .col */}
+
+          <div className="col-lg-3 ms-auto">
+            <ul className="skills">
+              <li>SQL</li>
+              <li>NOSQL</li>
+              <li>JOINS</li>
+              <li>AGGREGATE</li>
+              <li>STORED PROCEDURE</li>
+              <li>VIEW</li>
+            </ul>
+          </div>
+          <div className="col-xl-9 col-lg-9">
+            <img src={Img9} />
+          </div>
+        </div>
+        <div className="row align-items-center mb-75 lg-mb-50 md-mb-20 mt-40">
+          <div className="col-xl-9 col-lg-9">
+            <img src={Img10} />
+          </div>
+          {/* End .col */}
+
+          <div className="col-lg-3 ms-auto">
+            <ul className="skills">
+              <li>SQL</li>
+              <li>NOSQL</li>
+              <li>JOINS</li>
+              <li>AGGREGATE</li>
+              <li>STORED PROCEDURE</li>
+              <li>VIEW</li>
+            </ul>
+          </div>
+        </div>
+        <div className="row align-items-center mb-75 lg-mb-50 md-mb-20 mt-40">
+          {/* End .col */}
+
+          <div className="col-lg-3 ms-auto">
+            <ul className="skills">
+              <li>SQL</li>
+              <li>NOSQL</li>
+              <li>JOINS</li>
+              <li>AGGREGATE</li>
+              <li>STORED PROCEDURE</li>
+              <li>VIEW</li>
+            </ul>
+          </div>
+          <div className="col-xl-9 col-lg-9">
+            <img src={Img11} />
+          </div>
+        </div>
+        <div className="row align-items-center mb-75 lg-mb-50 md-mb-20 mt-40">
+          <div className="col-xl-9 col-lg-9">
+            <img src={Img12} />
+          </div>
+          {/* End .col */}
+
+          <div className="col-lg-3 ms-auto">
+            <ul className="skills">
+              <li>SQL</li>
+              <li>NOSQL</li>
+              <li>JOINS</li>
+              <li>AGGREGATE</li>
+              <li>STORED PROCEDURE</li>
+              <li>VIEW</li>
+            </ul>
+          </div>
+        </div>
+        <div className="row align-items-center mb-75 lg-mb-50 md-mb-20 mt-40">
+          {/* End .col */}
+
+          <div className="col-lg-3 ms-auto">
+            <ul className="skills">
+              <li>SQL</li>
+              <li>NOSQL</li>
+              <li>JOINS</li>
+              <li>AGGREGATE</li>
+              <li>STORED PROCEDURE</li>
+              <li>VIEW</li>
+            </ul>
+          </div>
+          <div className="col-xl-9 col-lg-9">
+            <img src={Img13} />
+          </div>
+        </div>
+        <div className="row align-items-center mb-75 lg-mb-50 md-mb-20 mt-40">
+          <div className="col-xl-9 col-lg-9">
+            <img src={Img14} />
+          </div>
+          {/* End .col */}
+
+          <div className="col-lg-3 ms-auto">
+            <ul className="skills">
+              <li>SQL</li>
+              <li>NOSQL</li>
+              <li>JOINS</li>
+              <li>AGGREGATE</li>
+              <li>STORED PROCEDURE</li>
+              <li>VIEW</li>
+            </ul>
+          </div>
+        </div>
+        <div className="row align-items-center mb-75 lg-mb-50 md-mb-20 mt-40">
+          {/* End .col */}
+
+          <div className="col-lg-3 ms-auto">
+            <ul className="skills">
+              <li>SQL</li>
+              <li>NOSQL</li>
+              <li>JOINS</li>
+              <li>AGGREGATE</li>
+              <li>STORED PROCEDURE</li>
+              <li>VIEW</li>
+            </ul>
+          </div>
+          <div className="col-xl-9 col-lg-9">
+            <img src={Img15} />
+          </div>
+        </div>
+        <div className="row align-items-center mb-75 lg-mb-50 md-mb-20 mt-40">
+          <div className="col-xl-9 col-lg-9">
+            <img src={Img16} />
           </div>
           {/* End .col */}
 
@@ -229,7 +472,10 @@ const CreativeAgency = () => {
                   <div className="row">
                     <div className="col-lg-4 col-md-2 d-flex flex-column">
                       <h5 className="mb-30">Copyright AI2sql 2022</h5>
-                      <p>13553 Atlantic Blvd, Suite 201<br/> FL 32225</p>
+                      <p>
+                        13553 Atlantic Blvd, Suite 201
+                        <br /> FL 32225
+                      </p>
                     </div>
                     {/* End .col */}
 
