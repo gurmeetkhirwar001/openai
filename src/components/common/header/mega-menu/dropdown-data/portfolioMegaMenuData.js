@@ -1,4 +1,5 @@
-const portfolioMegaMenuData = [
+
+      const portfolioMegaMenuData = [
   {
     id: 1,
     title: "Boxed Layout",
