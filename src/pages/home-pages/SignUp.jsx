@@ -1,13 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import img1 from "../../assets/images/assets/ils_05.png";
-import Login from "../home-pages/Login";
+import img1 from "../../assets/images/media/media2.png";
+import SignupForm from "../home-pages/SignupForm";
 import Seo from "../../components/common/seo/Seo";
 
-const SignIn = () => {
+const SignUp = () => {
   return (
     <>
-      <Seo title="Sign In" />
+      <Seo title="Sign Up" />
       {/* End Seo Related data */}
 
       <div className="user-data-page clearfix d-md-flex">
@@ -18,15 +18,15 @@ const SignIn = () => {
           <div className="row">
             <div className="col-xxl-8 col-xl-11 m-auto">
               <blockquote>
-                "It is better to fail in originality than to succeed in
-                imitation."
+                “Learn as if you will live forever,live like you will die
+                tomorrow.”
               </blockquote>
-              <span className="bio">— Herman Melville</span>
+              <span className="bio">— Mahatma Gandhi</span>
             </div>
           </div>
           <div className="illustration-holder">
             <img
-              src={require("../../assets/images/media/media.png")}
+              src={img1}
               alt="illustration"
               className="illustration ms-auto"
             />
@@ -39,7 +39,10 @@ const SignIn = () => {
             <div className="logo">
               <Link to="/">
                 <img
-                  src={require("../../assets/images/logo/vCamp_01.svg").default}
+                  src={
+                    require("../../assets/images/logo/vCamp_01.svg")
+                      .default
+                  }
                   alt=""
                   width="127"
                 />
@@ -55,10 +58,13 @@ const SignIn = () => {
             <h2 className="font-recoleta">
               Hi <span>buddy</span>, welcome <br /> Back!
             </h2>
+            <p className="header-info pt-20 pb-50 lg-pb-30">
+              Have an account? Login <Link to="/sign-in"> here</Link>
+            </p>
 
-            <Login />
+            <SignupForm />
             <p className="text-center copyright-text">
-              Copyright @2022 InMusic Digital .
+              Copyright @2022 InMusic Digital.
             </p>
             {/* End form */}
           </div>
@@ -71,4 +77,4 @@ const SignIn = () => {
   );
 };
 
-export default SignIn;
+export default SignUp;
