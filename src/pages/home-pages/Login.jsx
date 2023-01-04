@@ -1,12 +1,31 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { UserLogin } from "../../redux/actions/userAction";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const passwordHandler = () => setPassword(!password);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const onHandleLogin = async (e) => {
+    e.preventDefault();
+    const res = await dispatch(
+      UserLogin({
+        email,
+        password,
+      })
+    );
+    if (res?.Status_code) {
+      toast.success(res?.message);
+      localStorage.setItem("token", res?.Token);
+      setTimeout(() => navigate("/playground"), 5000);
+    } else {
+      toast.error(res?.message);
+    }
+  };
 
   return (
     <form className="d-flex justify-content-center align-items-center flex-column h60">
@@ -57,14 +76,7 @@ const LoginForm = () => {
           <div className="col-12">
             <button
               className="theme-btn-one w-100 mt-50 mb-50"
-              onClick={() =>
-                dispatch(
-                  UserLogin({
-                    email,
-                    password,
-                  })
-                )
-              }
+              onClick={onHandleLogin}
             >
               Login
             </button>

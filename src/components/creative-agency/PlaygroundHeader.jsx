@@ -1,13 +1,18 @@
+/* eslint-disable jsx-a11y/role-supports-aria-props */
+/* eslint-disable jsx-a11y/alt-text */
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../assets/images/logo/vCamp_01.png";
 import MegaMenuOne from "../common/header/mega-menu/MegaMenuOne";
 import MobileMenuContent from "../common/header/mega-menu/MobileMenuContent";
 import TopPopupSearchCanvas from "./TopPopupSearchCanvas";
-
+import userDropdownData from "../common/header/mega-menu/dropdown-data/userDropdownDta";
+import CustomLink from "../common/header/mega-menu/CustomLink";
+import User from "../../assets/images/icon/user.png";
+import jwtDecode from "jwt-decode";
 const Header = () => {
   const [navbar, setNavbar] = useState(false);
-
+  const decodedtoken = jwtDecode(localStorage.getItem("token"));
   const changeBackground = () => {
     if (window.scrollY >= 95) {
       setNavbar(true);
@@ -60,17 +65,50 @@ const Header = () => {
           </nav>
           {/* End navbar */}
 
-          <div className="right-widget d-flex align-items-center">
-            <TopPopupSearchCanvas />
-            {/* End top popup search canvas */}
+          {localStorage.getItem("token") && (
+            <div className="right-widget d-flex align-items-center">
+              <div className="nav-item dropdown mega-dropdown-sm">
+                <img
+                  src={User}
+                  className="nav-link dropdown-toggle"
+                  data-bs-toggle="dropdown"
+                  data-bs-auto-close="outside"
+                  aria-expanded="false"
+                />
 
-            <Link
-              to="/contact-v2"
-              className="tran3s contact-btn d-none d-sm-block"
-            >
-              <span>Contact Us</span>
-            </Link>
-          </div>
+                <div className="dropdown-menu">
+                  <div>
+                    <div className="row">
+                      {userDropdownData.map((item) => (
+                        <div className="col-lg-6" key={item.id}>
+                          <div className="menu-column">
+                            <h6 className="mega-menu-title">{item.title}</h6>
+                            <div className="style-none mega-dropdown-list">
+                              {item.menuList.map((list, i) => (
+                                <div key={i}>
+                                  <CustomLink
+                                    to={list.routeLink}
+                                    className="dropdown-item"
+                                  >
+                                    <span>
+                                      {list.name}{" "}
+                                      {list.name == "Number of Request"
+                                        ? `:    ${decodedtoken.requestBalance}`
+                                        : ""}
+                                    </span>
+                                  </CustomLink>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
           {/* <!-- /.right-widget --> */}
         </div>
       </div>

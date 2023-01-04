@@ -66,39 +66,43 @@ const Header = () => {
             <TopPopupSearchCanvas />
             {/* End top popup search canvas */}
             <div className="nav-item dropdown mega-dropdown-sm">
-              <img
-                src={User}
-                className="nav-link dropdown-toggle"
-                data-bs-toggle="dropdown"
-                data-bs-auto-close="outside"
-                aria-expanded="false"
-              />
+              {localStorage.getItem("token") !== undefined && (
+                <>
+                  <img
+                    src={User}
+                    className="nav-link dropdown-toggle"
+                    data-bs-toggle="dropdown"
+                    data-bs-auto-close="outside"
+                    aria-expanded="false"
+                  />
 
-              <div className="dropdown-menu">
-                <div>
-                  <div className="row">
-                    {userDropdownData.map((item) => (
-                      <div className="col-lg-6" key={item.id}>
-                        <div className="menu-column">
-                          <h6 className="mega-menu-title">{item.title}</h6>
-                          <div className="style-none mega-dropdown-list">
-                            {item.menuList.map((list, i) => (
-                              <div key={i}>
-                                <CustomLink
-                                  to={list.routeLink}
-                                  className="dropdown-item"
-                                >
-                                  <span>{list.name}</span>
-                                </CustomLink>
+                  <div className="dropdown-menu">
+                    <div>
+                      <div className="row">
+                        {userDropdownData.map((item) => (
+                          <div className="col-lg-6" key={item.id}>
+                            <div className="menu-column">
+                              <h6 className="mega-menu-title">{item.title}</h6>
+                              <div className="style-none mega-dropdown-list">
+                                {item.menuList.map((list, i) => (
+                                  <div key={i}>
+                                    <CustomLink
+                                      to={list.routeLink}
+                                      className="dropdown-item"
+                                    >
+                                      <span>{list.name}</span>
+                                    </CustomLink>
+                                  </div>
+                                ))}
                               </div>
-                            ))}
+                            </div>
                           </div>
-                        </div>
+                        ))}
                       </div>
-                    ))}
+                    </div>
                   </div>
-                </div>
-              </div>
+                </>
+              )}
             </div>
           </div>
           {/* <!-- /.right-widget --> */}

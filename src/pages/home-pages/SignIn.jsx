@@ -1,17 +1,36 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { UserSignUp } from "../../redux/actions/userAction";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 const Sign = () => {
   const dispatch = useDispatch();
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const navigate = useNavigate();
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const passwordHandler = () => setPassword(!password);
 
-
-
+  const HandleSubmit = async (e) => {
+    e.preventDefault();
+    const res = await dispatch(
+      UserSignUp({
+        firstName,
+        lastName,
+        email,
+        password,
+      })
+    );
+    console.log(res, "ressss");
+    if (res?.Status_code == 200) {
+      toast.success(res?.message);
+      setTimeout(() => navigate("/"), 5000);
+    } else {
+      toast.error(res?.message);
+    }
+  };
   // Handling the form submission
 
   return (
@@ -38,7 +57,6 @@ const Sign = () => {
                 onChange={(e) => setLastName(e.target.value)}
                 placeholder=""
                 value={lastName}
-
                 required
               />
             </div>
@@ -77,12 +95,7 @@ const Sign = () => {
           <div className="col-12">
             <button
               className="theme-btn-one w-100 mt-50 mb-50"
-              onClick={() => dispatch(UserSignUp({
-                firstName,
-                lastName,
-                email,
-                password
-              }))}
+              onClick={(e) => HandleSubmit(e)}
             >
               Sign in
             </button>

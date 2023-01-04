@@ -1,12 +1,11 @@
-import * as playground from "../actionType/useractionType";
-// import   UserApi from "../../services/user";
+import * as PlaygroundActionType from "../actionType/playgroundactionType";
+import PlaygroundApi from "../../services/playground";
 
-export const Playground = (params) => async (dispatch) => {
-  const res = await UserApi.SignIn(params);
+export const PlaygroundAction = (params) => async (dispatch) => {
+  const res = await PlaygroundApi.Playgroundapi(params);
   dispatch({
-    type: Playground.AI_RESPONSE,
+    type: PlaygroundActionType.AI_RESPONSE,
     payload: res.data,
   });
   return res.data;
 };
-

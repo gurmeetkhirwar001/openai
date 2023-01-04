@@ -7,7 +7,15 @@ const CustomLink = ({ to, children, ...props }) => {
 
   return (
     <>
-      <Link style={{ color: match ? "#ff2759" : "" }} to={to} {...props}>
+      <Link
+        style={{
+          color: match ? "#ff2759" : "",
+          pointerEvents:
+            to == "/playground/javascript:void(0)" ? "none" : "cursor",
+        }}
+        to={to}
+        {...props}
+      >
         {children}
       </Link>
     </>

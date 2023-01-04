@@ -33,7 +33,7 @@ import Img16 from "../../assets/images/question/language.png";
 const CreativeAgency = () => {
   return (
     <div className="main-page-wrapper light-bg">
-      <Seo title="Creative Agency" />
+      <Seo title="Home" />
       {/* End Seo Related data */}
 
       {/* <!-- 
