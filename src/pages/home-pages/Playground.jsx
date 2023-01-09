@@ -30,6 +30,23 @@ import Img13 from "../../assets/images/question/SQL.png";
 import Img14 from "../../assets/images/question/Summarizer.png";
 import Img15 from "../../assets/images/question/timecomplex.png";
 import Img16 from "../../assets/images/question/language.png";
+import ANSQL from "../../assets/images/question/ANSQL.png";
+import Apptitude from "../../assets/images/question/Apptitude.png";
+import ContentCreator from "../../assets/images/question/ContentCreator.png";
+import Essay from "../../assets/images/question/Essay.png";
+import Excel from "../../assets/images/question/Excel.png";
+import Extract from "../../assets/images/question/Extract.png";
+import General from "../../assets/images/question/General.png";
+import QA from "../../assets/images/question/questioning.png";
+import Marketing from "../../assets/images/question/marketing.png";
+import Marketingnumbers from "../../assets/images/question/marketingnumbers.png";
+import multiplechoice from "../../assets/images/question/multiplechoice.png";
+import oracle from "../../assets/images/question/orcale.png";
+import plagrism from "../../assets/images/question/plagrism.png";
+import postgresql from "../../assets/images/question/posgtresql.png";
+import storeprocedure from "../../assets/images/question/storeprocedure.png";
+import vba from "../../assets/images/question/VBA.png";
+import view from "../../assets/images/question/view.png";
 import { useEffect } from "react";
 
 const Playground = (props) => {

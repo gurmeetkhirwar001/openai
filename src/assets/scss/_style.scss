@@ -13042,6 +13042,30 @@ body .theme-btn-eighteen:hover:before {
   font-weight: bold;
   font-size: 24px;
   margin-bottom: 1.4rem;
+  transition: 0.3s;
+}
+.section-img{
+  transition: 0.3s;
+}
+.skills li:hover{
+  background-color: #a8b7dc;
+  list-style: none;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 10px;
+  font-size: 24px;
+  margin-bottom: 1.4rem;
+  padding: .5rem;
+}
+.skill li .active{
+  background-color: #a8b7dc;
+  list-style: none;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 10px;
+  font-size: 24px;
+  margin-bottom: 1.4rem;
+  padding: .5rem;
 }
 .img30{
   width: 100px;
