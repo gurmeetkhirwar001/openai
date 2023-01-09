@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import CustomLink from "./CustomLink";
-import logo from "../../../../assets/images/logo/vCamp_01.png";
+import logo from "../../../../assets/images/icon/toplogo.png";
+
 import homeDropdownData from "./dropdown-data/homeMegaMenuData";
 import elementsMegaMenuData from "./dropdown-data/elementsMegaMenuData";
 import portfolioMegaMenuData from "./dropdown-data/portfolioMegaMenuData";

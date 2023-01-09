@@ -40,7 +40,7 @@ const FooterMenuList = () => {
   return (
     <>
       {footerMenuContent.map((menuItem) => (
-        <div className={`${menuItem.colClass} col-lg-4 d-flex justify-content-center flex-column align-items-center `} key={menuItem.id}>
+        <div className={`${menuItem.colClass} col-lg-4 d-flex  flex-column align-items-center `} key={menuItem.id}>
           <h6 className="footer-title">{menuItem.title}</h6>
           <ul className="footer-nav-link style-none ms-3">
             {menuItem.list.map((list, i) => (
