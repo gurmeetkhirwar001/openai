@@ -11,6 +11,7 @@ import useRazorpay from "react-razorpay";
 import { ToastContainer, toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { GetUser } from "../../redux/actions/userAction";
+import Check from "../../assets/images/icon/checkico.png";
 
 const Pricing = () => {
   const dispatch = useDispatch();
@@ -87,93 +88,192 @@ const Pricing = () => {
             <div className="col-sm-12 col-md-4 mt-4">
               <div class="card">
                 <div class="card-body">
-                  <div className="d-flex justify-content-between align-items-center">
-                    <h5 className="fw-bold">Hobby</h5>
-                    <img src={Home} />
+                  <div className="text-center">
+                    <h3 className="fw-bold pt-20">Solo</h3>
+                    <p className="pt-10">For your personal brand</p>
                   </div>
 
-                  <h2 class="card-title text-center fw-bold mt-40">Rs 10.00</h2>
-                  <p class="card-text mt-40">
-                    It is a long established fact that a reader will be
-                    distracted by the readable content of a page when looking at
-                    its layout. The point of using Lorem
+                  <h3 class="card-title text-center fw-bold mt-40">
+                    $9.99/month
+                  </h3>
+                  <p class="card-text mt-20 text-center">
+                    Billed annually or monthly
                   </p>
-                  <ul className="price-list d-flex justify-content-center align-items-center flex-column">
-                    <li>It is a long established</li>
-                    <li>It is a long established</li>
-
-                    <li>It is a long established</li>
+                  <div className="border-bottom "></div>
+                  <ul className="price-list">
+                    <li>
+                      <div className="d-flex justify-content-center align-items-center ">
+                        <img src={Check} />
+                        <div className="ms-1">100 runs/month</div>
+                      </div>
+                    </li>
+                    <li>
+                      <div className="d-flex justify-content-center align-items-center ">
+                        <img src={Check} />
+                        <div className="ms-1">No watermark</div>
+                      </div>
+                    </li>
+                    <li>
+                      <div className="d-flex justify-content-center align-items-center ">
+                        <img src={Check} />
+                        <div className="ms-1">AI Meme Search Engine</div>
+                      </div>
+                    </li>
+                    <li>
+                      <div className="d-flex justify-content-center align-items-center ">
+                        <img src={Check} />
+                        <div className="ms-1">
+                          {" "}
+                          Multilingual Memes (110+ Languages)
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div className="d-flex justify-content-center align-items-center ">
+                        <img src={Check} />
+                        <div className="ms-1">Text to memes</div>
+                      </div>
+                    </li>
+                    <li>
+                      <div className="d-flex justify-content-center align-items-center ">
+                        <img src={Check} />
+                        <div className="ms-1">Saved memes</div>
+                      </div>
+                    </li>
                   </ul>
                 </div>
-                <button
-                  type="button"
-                  class="btn-class btn btn-light p-4 mt-4 fw-bold"
-                  onClick={() => HandleOrder(10)}
-                >
-                  Get Started Today
-                </button>
+                <div className="d-flex justify-content-center align-items-center">
+                  <button
+                    type="button"
+                    class="btn-class btn btn-light p-4 mt-4 fw-bold"
+                    onClick={() => HandleOrder(10)}
+                  >
+                    Try For Free
+                  </button>
+                </div>
               </div>
             </div>
             <div className="col-sm-12 col-md-4 mt-4">
               <div class="card">
                 <div class="card-body">
-                  <div className="d-flex justify-content-between align-items-center">
-                    <h5 className="fw-bold">Professional</h5>
-                    <img src={Professional} />
+                  <div className="text-center">
+                    <h3 className="fw-bold pt-20">Startup</h3>
+                    <p className="pt-10">For small marketing teams</p>
                   </div>
 
-                  <h2 class="card-title text-center fw-bold mt-40">Rs 50.00</h2>
-                  <p class="card-text mt-40">
-                    It is a long established fact that a reader will be
-                    distracted by the readable content of a page when looking at
-                    its layout. The point of using Lorem
-                  </p>
-                  <ul className="price-list d-flex justify-content-center align-items-center flex-column">
-                    <li>It is a long established</li>
-                    <li>It is a long established</li>
-
-                    <li>It is a long established</li>
+                  <h3 class="card-title text-center fw-bold mt-40">
+                    $24.99 /month
+                  </h3>
+                  <p class="card-text mt-20 text-center">Billed annually</p>
+                  <div className="border-bottom "></div>
+                  <ul className="price-list">
+                    <li>
+                      <div className="d-flex justify-content-center align-items-center ">
+                        <img src={Check} />
+                        <div className="ms-1">Unlimited runs</div>
+                      </div>
+                    </li>
+                    <li>
+                      <div className="d-flex justify-content-center align-items-center ">
+                        <img src={Check} />
+                        <div className="ms-1">No watermark</div>
+                      </div>
+                    </li>
+                    <li>
+                      <div className="d-flex justify-content-center align-items-center ">
+                        <img src={Check} />
+                        <div className="ms-1">AI Meme Search Engine</div>
+                      </div>
+                    </li>
+                    <li>
+                      <div className="d-flex justify-content-center align-items-center ">
+                        <img src={Check} />
+                        <div className="ms-1">
+                          {" "}
+                          Multilingual Memes (110+ Languages)
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div className="d-flex justify-content-center align-items-center ">
+                        <img src={Check} />
+                        <div className="ms-1">Text to memes</div>
+                      </div>
+                    </li>
+                    <li>
+                      <div className="d-flex justify-content-center align-items-center ">
+                        <img src={Check} />
+                        <div className="ms-1">Priority Support</div>
+                      </div>
+                    </li>
                   </ul>
                 </div>
-                <button
-                  type="button"
-                  class="btn-class btn btn-light p-4 mt-4 fw-bold"
-                  onClick={() => HandleOrder(50)}
-                >
-                  Get Started Today
-                </button>
+                <div className="d-flex justify-content-center align-items-center">
+                  <button
+                    type="button"
+                    class="btn-class btn btn-light p-4 mt-4 fw-bold"
+                    onClick={() => HandleOrder(10)}
+                  >
+                    Try For Free
+                  </button>
+                </div>
               </div>
             </div>
             <div className="col-sm-12 col-md-4 mt-4">
               <div class="card">
                 <div class="card-body">
-                  <div className="d-flex justify-content-between align-items-center">
-                    <h5 className="fw-bold">Business</h5>
-                    <img src={Business} />
+                  <div className="text-center">
+                    <h3 className="fw-bold pt-20">Enterprise</h3>
+                    <p className="pt-10">For large marketing teams</p>
                   </div>
 
-                  <h2 class="card-title text-center fw-bold mt-40">
-                    Rs 100.00
-                  </h2>
-                  <p class="card-text mt-40">
-                    It is a long established fact that a reader will be
-                    distracted by the readable content of a page when looking at
-                    its layout. The point of using Lorem
-                  </p>
-                  <ul className="price-list d-flex justify-content-center align-items-center flex-column">
-                    <li>It is a long established</li>
-                    <li>It is a long established</li>
-
-                    <li>It is a long established</li>
+                  <h3 class="card-title text-center fw-bold mt-40">
+                    $83.99 /month
+                  </h3>
+                  <p class="card-text mt-20 text-center">Billed annually</p>
+                  <div className="border-bottom "></div>
+                  <ul className="price-list">
+                    <li>
+                      <div className="d-flex justify-content-center align-items-center ">
+                        <img src={Check} />
+                        <div className="ms-1">Everything in Startup Plan</div>
+                      </div>
+                    </li>
+                    <li>
+                      <div className="d-flex justify-content-center align-items-center ">
+                        <img src={Check} />
+                        <div className="ms-1"> APIs (1,000 requests/mo)</div>
+                      </div>
+                    </li>
+                    <li>
+                      <div className="d-flex justify-content-center align-items-center ">
+                        <img src={Check} />
+                        <div className="ms-1">Company Themed Memes*</div>
+                      </div>
+                    </li>
+                    <li>
+                      <div className="d-flex justify-content-center align-items-center ">
+                        <img src={Check} />
+                        <div className="ms-1"> 3 Team Members*</div>
+                      </div>
+                    </li>
+                    <li>
+                      <div className="d-flex justify-content-center align-items-center ">
+                        <img src={Check} />
+                        <div className="ms-1"> Access to beta features</div>
+                      </div>
+                    </li>
                   </ul>
                 </div>
-                <button
-                  type="button"
-                  class="btn-class btn btn-light p-4 mt-4 fw-bold"
-                  onClick={() => HandleOrder(100)}
-                >
-                  Get Started Today
-                </button>
+                <div className="d-flex justify-content-center align-items-center">
+                  <button
+                    type="button"
+                    class="btn-class btn btn-light p-4 mt-4 fw-bold"
+                    onClick={() => HandleOrder(10)}
+                  >
+                    Try For Free
+                  </button>
+                </div>
               </div>
             </div>
           </diuv>
