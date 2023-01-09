@@ -182,6 +182,17 @@ const Playground = (props) => {
                   </ul>
                 </div>
                 {textBox && (
+                  <div className="d-flex justify-content-end mt-40">
+                    <Link
+                      to="#"
+                      className="theme-btn-green ripple-btn"
+                      onClick={(e) => onHandlePlayground(e)}
+                    >
+                      {loader ? <img src={Loader} /> : "Copy"}
+                    </Link>
+                  </div>
+                )}
+                {textBox && (
                   <textarea
                     placeholder="Your Output*"
                     className="text-area"
