@@ -45,7 +45,9 @@ const MegaMenuOne = () => {
       {/* End shop dropdown */}
 
       <li className="nav-item dropdown mega-dropdown-sm">
-        <button className="nav-link">Blog</button>
+        <Link to={"/price"} className="nav-link">
+          Pricing
+        </Link>
       </li>
       {/* End blog dropdown */}
     </ul>

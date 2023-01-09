@@ -8,11 +8,12 @@ import FromStyleOne from "../../components/common/contact/FromStyleOne";
 import CopyrightFooter from "../../components/common/footer/CopyrightFooter";
 import FooterMenuList from "../../components/common/footer/FooterMenuList";
 import Seo from "../../components/common/seo/Seo";
+import "react-responsive-modal/styles.css";
 import FeatureSection from "../../components/creative-agency/FeatureSection";
 import NumberSection from "../../components/creative-agency/NumberSection";
 import Faq from "../../components/creative-agency/Faq";
 import FooterLogo from "../../assets/images/icon/toplogo.png";
-
+import Modal from "react-responsive-modal";
 import Header from "../../components/creative-agency/Header";
 import Computer from "../../assets/images/icon/computer.png";
 import Sit from "../../assets/images/icon/siting.png";
@@ -58,7 +59,7 @@ const CreativeAgency = () => {
   const [sectionThird, setSectionThirdImage] = useState("");
   const [sectionFourth, setSectionFourthImage] = useState("");
   const [sectionFifth, setSectionFifthImage] = useState("");
-
+  const [open, setOpen] = useState(false);
   console.log(sectionOne, "sectionOne");
   useEffect(() => {
     async function setImages() {
@@ -281,7 +282,7 @@ const CreativeAgency = () => {
     if (type === "NaturalLanguagetoJava") {
       setSectionSecondImage(Img4);
     } else if (type === "Summarizefora2ndgrader") {
-      setSectionSecondImage(Img16);
+      setSectionSecondImage(Img14);
     } else if (type === "PythonDocstring") {
       setSectionSecondImage(Img10);
     } else if (type === "NaturalLanguagetoScala") {
@@ -393,7 +394,7 @@ const CreativeAgency = () => {
                 {/* End .col */}
 
                 <div className="col-lg-5 ms-auto" data-aos="fade-left">
-                  <img src={Computer} />
+                  <img src={Img7} />
                 </div>
                 {/* End .col */}
               </div>
@@ -548,7 +549,7 @@ const CreativeAgency = () => {
         </div>
         <div className="row align-items-center mb-75 lg-mb-50 md-mb-20 mt-40">
           <div className="col-xl-9 col-lg-9 section-img" data-aos="fade-left">
-            <img src={sectionFifth} />
+            <img src={sectionFifth} className="imag" />
           </div>
           {/* End .col */}
 
@@ -566,6 +567,9 @@ const CreativeAgency = () => {
               ))}
             </ul>
           </div>
+          <Modal open={open} onClose={() => setOpen(false)}>
+            <img src={sectionFifth} />
+          </Modal>
         </div>
 
         <div className="d-flex justify-content-center align-items-center">

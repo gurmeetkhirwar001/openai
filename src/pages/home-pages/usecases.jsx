@@ -99,36 +99,7 @@ export default function UseCases() {
       icon: UseCaseIcon,
       description: "Answer questions based on existing knowledge.",
     },
-    {
-      type: "view",
-      name: "View",
-      icon: UseCaseIcon,
-      description: "Answer questions based on existing knowledge.",
-    },
-    {
-      type: "storeprocedure",
-      name: "Store Procedure",
-      icon: UseCaseIcon,
-      description: "Answer questions based on existing knowledge.",
-    },
-    {
-      type: "anisql",
-      name: "AniSQL",
-      icon: UseCaseIcon,
-      description: "Answer questions based on existing knowledge.",
-    },
-    {
-      type: "oraclesql",
-      name: "Oracle SQL",
-      icon: UseCaseIcon,
-      description: "Answer questions based on existing knowledge.",
-    },
-    {
-      type: "postgresql",
-      name: "Postgres SQL",
-      icon: UseCaseIcon,
-      description: "Answer questions based on existing knowledge.",
-    },
+
     {
       type: "Explaincode",
       name: "Code Explanation",
@@ -226,7 +197,39 @@ export default function UseCases() {
       description: "Answer questions based on existing knowledge.",
     },
   ]);
-
+  const [subcase, setSubcases] = useState([
+    {
+      type: "view",
+      name: "View",
+      icon: UseCaseIcon,
+      description: "Answer questions based on existing knowledge.",
+    },
+    {
+      type: "storeprocedure",
+      name: "Store Procedure",
+      icon: UseCaseIcon,
+      description: "Answer questions based on existing knowledge.",
+    },
+    {
+      type: "anisql",
+      name: "AniSQL",
+      icon: UseCaseIcon,
+      description: "Answer questions based on existing knowledge.",
+    },
+    {
+      type: "oraclesql",
+      name: "Oracle SQL",
+      icon: UseCaseIcon,
+      description: "Answer questions based on existing knowledge.",
+    },
+    {
+      type: "postgresql",
+      name: "Postgres SQL",
+      icon: UseCaseIcon,
+      description: "Answer questions based on existing knowledge.",
+    },
+  ]);
+  const [submenu, setSubMenu] = useState(false);
   const HandleSearch = (e) => {
     const query = e.target.value;
     if (e.target.value !== "") {
@@ -286,32 +289,64 @@ export default function UseCases() {
           </div>
         </form>
         <div className="row gx-5">
-          {dataArray?.map((caseobj) => (
-            <div className="col-md-4 col-xs-12 ">
-              <div
-                className={`d-flex  ${
-                  !searching && "justify-space-around  align-items-center"
-                } mb-10`}
-                style={{ cursor: "pointer" }}
-                onClick={() => {
-                  navigate("/playground");
-                  localStorage.setItem("type", caseobj.type);
-                  localStorage.setItem("typename", caseobj.name);
-                }}
-              >
-                <p className="px-2 icon-class">
-                  {" "}
-                  <img src={caseobj.icon} height={20} />
-                </p>
-                <p>
-                  {caseobj.name}
-                  <p style={{ fontSize: "10px", marginBottom: 0 }}>
-                    {caseobj.description}
+          {submenu &&
+            subcase.map((sub) => (
+              <div className="col-md-4 col-xs-12 ">
+                <div
+                  className={`d-flex  ${
+                    !searching && "justify-space-around  align-items-center"
+                  } ml-4`}
+                  style={{ marginLeft: "4rem", cursor: "pointer" }}
+                  onClick={() => {
+                    navigate("/playground");
+                    localStorage.setItem("type", sub.type);
+                    localStorage.setItem("typename", sub.name);
+                  }}
+                >
+                  <p className="px-2 icon-class">
+                    {" "}
+                    <img src={sub.icon} height={20} />
                   </p>
-                </p>
+                  <p>
+                    {sub.name}
+                    <p style={{ fontSize: "10px", marginBottom: 0 }}>
+                      {sub.description}
+                    </p>
+                  </p>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          {!submenu &&
+            dataArray?.map((caseobj) => (
+              <div className="col-md-4 col-xs-12 ">
+                <div
+                  className={`d-flex  ${
+                    !searching && "justify-space-around  align-items-center"
+                  } mb-10`}
+                  style={{ cursor: "pointer" }}
+                  onClick={() => {
+                    if (caseobj.type !== "SQLTranslate") {
+                      navigate("/playground");
+                      localStorage.setItem("type", caseobj.type);
+                      localStorage.setItem("typename", caseobj.name);
+                    } else {
+                      setSubMenu(true);
+                    }
+                  }}
+                >
+                  <p className="px-2 icon-class">
+                    {" "}
+                    <img src={caseobj.icon} height={20} />
+                  </p>
+                  <p>
+                    {caseobj.name}
+                    <p style={{ fontSize: "10px", marginBottom: 0 }}>
+                      {caseobj.description}
+                    </p>
+                  </p>
+                </div>
+              </div>
+            ))}
         </div>
       </div>
     </div>

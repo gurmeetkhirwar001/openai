@@ -4,7 +4,7 @@ import { Helmet } from "react-helmet-async";
 const Seo = ({ title }) => {
   return (
     <Helmet>
-      <title>{title} || React Creative Agency & React Portfolio Template</title>
+      <title>{title} || Answergenie</title>
       <meta
         name="description"
         content="Web site created using create-react-app"

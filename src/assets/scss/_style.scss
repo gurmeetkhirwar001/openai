@@ -13057,6 +13057,10 @@ body .theme-btn-eighteen:hover:before {
   margin-bottom: 1.4rem;
   padding: .5rem;
 }
+.imag:hover{
+  transform: scale(1.25);
+  transition: 0.3s;
+}
 .skill li .active{
   background-color: #a8b7dc;
   list-style: none;

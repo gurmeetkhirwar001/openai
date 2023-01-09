@@ -7,6 +7,7 @@ import "react-responsive-modal/styles.css";
 import Dot from "../../assets/images/icon/dots.png";
 import Refresh from "../../assets/images/icon/refer.png";
 import Loader from "../../assets/images/assets/loader.gif";
+import copy from "../../assets/images/icon/copy.png";
 import Delivery from "../../assets/images/icon/delivery.png";
 import ProtectedRoute from "../../utils/ProtectedRoute";
 import { useState } from "react";
@@ -48,6 +49,8 @@ import storeprocedure from "../../assets/images/question/storeprocedure.png";
 import vba from "../../assets/images/question/VBA.png";
 import view from "../../assets/images/question/view.png";
 import { useEffect } from "react";
+import Seo from "../../components/common/seo/Seo";
+import { useRef } from "react";
 
 const Playground = (props) => {
   const [textBox, setTextBox] = useState(false);
@@ -56,6 +59,7 @@ const Playground = (props) => {
   const [textBoxValue, setTextBoxValue] = useState("");
   const { userdetail } = useSelector((state) => state.user);
   const [loader, setLoader] = useState(false);
+  const answertextarea = useRef(null);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [data, setData] = useState({
@@ -123,7 +127,57 @@ const Playground = (props) => {
         return img;
       case "writeJavaScript":
         img = Img1;
-
+        return img;
+      case "view":
+        img = view;
+        return img;
+      case "storeprocedure":
+        img = storeprocedure;
+        return img;
+      case "anisql":
+        img = ANSQL;
+        return img;
+      case "oraclesql":
+        img = oracle;
+        return img;
+      case "postgresql":
+        img = postgresql;
+        return img;
+      case "VBACode":
+        img = vba;
+        return img;
+      case "QuestionAndAnswering":
+        img = QA;
+        return img;
+      case "EssayWriting":
+        img = Essay;
+        return img;
+      case "QuestionGeneration":
+        img = General;
+        return img;
+      case "MCQGeneration":
+        img = multiplechoice;
+        return img;
+      case "GetExcelFormula":
+        img = Excel;
+        return img;
+      case "ExtractImportantWords":
+        img = Extract;
+        return img;
+      case "AptitudeAnswers":
+        img = Apptitude;
+        return img;
+      case "PlagiarismRemover":
+        img = plagrism;
+        return img;
+      case "ContentWriter":
+        img = ContentCreator;
+        return img;
+      case "MarketResearchOnlyNumbers":
+        img = Marketingnumbers;
+        return img;
+      case "MarketResearch":
+        img = Marketing;
         return img;
       default:
         break;
@@ -150,8 +204,13 @@ const Playground = (props) => {
       }
     }
   };
+  const copyoutput = () => {
+    answertextarea.current.select();
+    document.execCommand("copy");
+  };
   return (
     <ProtectedRoute>
+      <Seo title={`${localStorage.getItem("typename")} || Playground`} />
       <div className="playground-div">
         <PlaygroundHeader />
         <div className="container-fluid">
@@ -203,9 +262,9 @@ const Playground = (props) => {
                     <Link
                       to="#"
                       className="theme-btn-green ripple-btn"
-                      onClick={(e) => onHandlePlayground(e)}
+                      onClick={() => copyoutput()}
                     >
-                      {loader ? <img src={Loader} /> : "Copy"}
+                      {<img src={copy} />}
                     </Link>
                   </div>
                 )}
@@ -214,6 +273,7 @@ const Playground = (props) => {
                     placeholder="Your Output*"
                     className="text-area"
                     name="message"
+                    ref={answertextarea}
                     required
                     value={textBoxValue}
                     disabled={true}

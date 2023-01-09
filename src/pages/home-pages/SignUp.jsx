@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import img1 from "../../assets/images/media/media2.png";
 import SignupForm from "../home-pages/SignupForm";
 import Seo from "../../components/common/seo/Seo";
-
+import logo from "../../assets/images/icon/toplogo.png";
 const SignUp = () => {
   return (
     <>
@@ -38,11 +38,7 @@ const SignUp = () => {
           <div className="d-flex justify-content-between align-items-center">
             <div className="logo">
               <Link to="/">
-                <img
-                  src={require("../../assets/images/logo/vCamp_01.svg").default}
-                  alt=""
-                  width="127"
-                />
+                <img src={logo} alt="" width="127" />
               </Link>
             </div>
             <Link to="/" className="go-back-button">
@@ -61,7 +57,7 @@ const SignUp = () => {
 
             <SignupForm />
             <p className="text-center copyright-text">
-              Copyright @2022 InMusic Digital.
+              Answergenie 2023 <a href="">hello@answergenie.co</a>
             </p>
             {/* End form */}
           </div>
