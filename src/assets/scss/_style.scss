@@ -13082,6 +13082,13 @@ body .theme-btn-eighteen:hover:before {
   border: 1px solid #ccc;
   padding: 1rem;
 }
+.text-area2{
+  height: 200px;
+  width: 100%;
+  margin-top: 2rem;
+  border: 1px solid #ccc;
+  padding: 1rem;
+}
 .theme-btn-green{background-color: #10a37f;
 color: #fff;
 padding: 10px 26px;}
@@ -13090,7 +13097,9 @@ padding-left: 0;
 }
 .bottom-content ul li{
   list-style: none;
-  display: inline-block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-right: 1rem;
 }
 .bottom-content ul li img{

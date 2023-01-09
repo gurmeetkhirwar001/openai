@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { UserSignUp } from "../../redux/actions/userAction";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 const Signup = () => {
   //   const [password, setPassword] = useState(false);
   //   const passwordHandler = () => setPassword(!password);
@@ -10,12 +12,35 @@ const Signup = () => {
   const dispatch = useDispatch();
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
+  const [message, setMessage] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const passwordHandler = () => setPassword(!password);
-
+  // const passwordHandler = () => setPassword(!password);
+  const navigate = useNavigate();
+  const HandleSignup = async (e) => {
+    e.preventDefault();
+    if (firstName == "" || lastName == "" || email == "" || password == "") {
+      setMessage("All Fields are required");
+    } else {
+      const response = await dispatch(
+        UserSignUp({
+          firstName: firstName,
+          lastName,
+          email,
+          password,
+        })
+      );
+      if (response?.Status_code == 200) {
+        toast.success(response?.message);
+        setTimeout(() => navigate("/"), 5000);
+      } else {
+        toast.error(response?.message);
+      }
+    }
+  };
   return (
     <form>
+      <p style={{ color: "red" }}>{message}</p>
       <div className="row">
         <div className="col-12">
           <div className="input-group-meta mb-25">
@@ -25,7 +50,7 @@ const Signup = () => {
               onChange={(e) => setFirstName(e.target.value)}
               placeholder=""
               value={firstName}
-              required
+              required={true}
             />
           </div>
         </div>
@@ -37,7 +62,7 @@ const Signup = () => {
               onChange={(e) => setLastName(e.target.value)}
               placeholder=""
               value={lastName}
-              required
+              required={true}
             />
           </div>
         </div>
@@ -49,7 +74,7 @@ const Signup = () => {
               type="email"
               onChange={(e) => setEmail(e.target.value)}
               placeholder="rshdkabir@gmail.com"
-              required
+              required={true}
             />
           </div>
         </div>
@@ -59,17 +84,17 @@ const Signup = () => {
             <label>Password</label>
             <input
               onChange={(e) => setPassword(e.target.value)}
-              type={password ? "password text" : "password"}
+              type={"password"}
               placeholder="Enter Password"
               className="pass_log_id"
-              required
+              required={true}
             />
-            <span className="placeholder_icon">
+            {/* <span className="placeholder_icon">
               <span
                 className={password ? "passVicon eye-slash" : "passVicon"}
                 onClick={passwordHandler}
               ></span>
-            </span>
+            </span> */}
           </div>
         </div>
 
@@ -77,40 +102,32 @@ const Signup = () => {
           <div className="input-group-meta mb-25">
             <label>Confirm Password*</label>
             <input
-              type={confirmPassword ? "text" : "password"}
+              type={"password"}
               placeholder="Enter Password"
               className="pass_log_id"
-              required
+              required={true}
             />
-            <span className="placeholder_icon">
+            {/* <span className="placeholder_icon">
               <span
                 className={confirmPassword ? "eye-slash" : "passVicon"}
                 onClick={confirmPasswordHandler}
               >
                 <img
-                  src={
-                    require("../../assets/images/icon/icon_67.svg").default
-                  }
+                  src={require("../../assets/images/icon/icon_67.svg").default}
                   alt="icon"
                 />
               </span>
-            </span>
+            </span> */}
           </div>
         </div>
 
         <div className="col-12">
-          <div className="agreement-checkbox d-flex justify-content-between align-items-center">
-            <div>
-              <input type="checkbox" id="remember" />
-              <label htmlFor="remember">Keep me logged in</label>
-            </div>
-            <a href="#">Forget Password?</a>
-          </div>
-          {/* <!-- /.agreement-checkbox --> */}
-        </div>
-
-        <div className="col-12">
-          <button className="theme-btn-one w-100 mt-50 mb-50">Login</button>
+          <button
+            className="theme-btn-one w-100 mt-50 mb-50"
+            onClick={(e) => HandleSignup(e)}
+          >
+            Signup
+          </button>
         </div>
       </div>
     </form>

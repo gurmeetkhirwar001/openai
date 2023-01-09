@@ -18,6 +18,14 @@ export const UserLogin = (params) => async (dispatch) => {
   });
   return res.data;
 };
+export const GetUser = () => async (dispatch) => {
+  const res = await UserApi.getCurrentuser();
+  dispatch({
+    type: User.GET_USER,
+    payload: res.data,
+  });
+  return res.data;
+};
 
 // export const VerifyUser = (params) => async (dispatch) => {
 //   const res = await UserApi.verifyMail(params);

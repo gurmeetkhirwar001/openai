@@ -8,11 +8,15 @@ import { useNavigate } from "react-router-dom";
 const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [message, setMessage] = useState("");
   const passwordHandler = () => setPassword(!password);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const onHandleLogin = async (e) => {
     e.preventDefault();
+    if (email == "" || password == "") {
+      setMessage("All Fields are required");
+    }
     const res = await dispatch(
       UserLogin({
         email,
@@ -30,6 +34,7 @@ const LoginForm = () => {
 
   return (
     <form>
+      <p style={{ color: "red" }}>{message}</p>
       {/* <p style={{ color: "red", textAlign: "center" }}>{message}</p> */}
       <div className="row">
         <div className="col-12">
@@ -39,7 +44,7 @@ const LoginForm = () => {
               type="email"
               onChange={(e) => setEmail(e.target.value)}
               placeholder="rshdkabir@gmail.com"
-              required
+              required={true}
             />
           </div>
         </div>
@@ -52,7 +57,7 @@ const LoginForm = () => {
               onChange={(e) => setPassword(e.target.value)}
               placeholder="Enter Password"
               className="pass_log_id"
-              required
+              required={true}
             />
             <span className="placeholder_icon">
               <span

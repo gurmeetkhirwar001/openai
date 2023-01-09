@@ -1,15 +1,22 @@
+/* eslint-disable jsx-a11y/role-supports-aria-props */
+/* eslint-disable jsx-a11y/alt-text */
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "../../assets/images/logo/vCamp_01.png";
 import MegaMenuOne from "../common/header/mega-menu/MegaMenuOne";
 import MobileMenuContent from "../common/header/mega-menu/MobileMenuContent";
 import TopPopupSearchCanvas from "./TopPopupSearchCanvas";
 import userDropdownData from "../common/header/mega-menu/dropdown-data/userDropdownDta";
-import CustomLink from "../common/header/mega-menu/CustomLink";
 import User from "../../assets/images/icon/user.png";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { GetUser } from "../../redux/actions/userAction";
+
 const Header = () => {
   const [navbar, setNavbar] = useState(false);
-
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { userdetail } = useSelector((state) => state.user);
   const changeBackground = () => {
     if (window.scrollY >= 95) {
       setNavbar(true);
@@ -17,9 +24,23 @@ const Header = () => {
       setNavbar(false);
     }
   };
-
+  const userToken = localStorage.getItem("token");
+  useEffect(() => {
+    async function getUser() {
+      dispatch(GetUser());
+    }
+    if (userToken !== null) {
+      getUser();
+    }
+  }, []);
+  console.log(userToken, "asd");
   window.addEventListener("scroll", changeBackground);
-
+  const Logout = (e) => {
+    console.log("hello");
+    e.preventDefault();
+    localStorage.removeItem("token");
+    setTimeout(() => navigate("/"), 1000);
+  };
   return (
     <header
       className={`theme-main-menu sticky-menu theme-menu-two ${
@@ -65,8 +86,8 @@ const Header = () => {
           <div className="right-widget d-flex align-items-center">
             <TopPopupSearchCanvas />
             {/* End top popup search canvas */}
-            <div className="nav-item dropdown mega-dropdown-sm">
-              {localStorage.getItem("token") !== undefined && (
+            {userToken !== null && (
+              <div className="nav-item dropdown mega-dropdown-sm">
                 <>
                   <img
                     src={User}
@@ -85,13 +106,22 @@ const Header = () => {
                               <h6 className="mega-menu-title">{item.title}</h6>
                               <div className="style-none mega-dropdown-list">
                                 {item.menuList.map((list, i) => (
-                                  <div key={i}>
-                                    <CustomLink
-                                      to={list.routeLink}
-                                      className="dropdown-item"
-                                    >
-                                      <span>{list.name}</span>
-                                    </CustomLink>
+                                  <div
+                                    key={i}
+                                    className="dropdown-item"
+                                    onClick={(e) =>
+                                      list.name === "Logout" && Logout(e)
+                                    }
+                                  >
+                                    <span>
+                                      <span>
+                                        {list.name}{" "}
+                                        {list.name == "Number of Request"
+                                          ? `:    ${userdetail?.requestBalance}`
+                                          : ""}
+                                      </span>
+                                    </span>
+                                    {/* </CustomLink> */}
                                   </div>
                                 ))}
                               </div>
@@ -102,8 +132,8 @@ const Header = () => {
                     </div>
                   </div>
                 </>
-              )}
-            </div>
+              </div>
+            )}
           </div>
           {/* <!-- /.right-widget --> */}
         </div>

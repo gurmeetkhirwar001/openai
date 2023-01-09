@@ -14,11 +14,12 @@ import Header from "../../components/creative-agency/Header";
 import Computer from "../../assets/images/icon/computer.png";
 import Sit from "../../assets/images/icon/siting.png";
 import Img3 from "../../assets/images/icon/img3.svg";
-import Img1 from "../../assets/images/question/timecomplex.png";
+import Img1 from "../../assets/images/question/JavaScript.png";
+import Img6 from "../../assets/images/question/pandaspark.png";
 import Img2 from "../../assets/images/question/ExplainCode.png";
 import Img4 from "../../assets/images/question/Java.png";
 import Img5 from "../../assets/images/question/JavaScripttoPython.png";
-import Img6 from "../../assets/images/question/PandastoPySpark.png";
+import Img17 from "../../assets/images/question/PandastoPySpark.png";
 import Img7 from "../../assets/images/question/ParseUnstructuredData.png";
 import Img8 from "../../assets/images/question/Playground.png";
 import Img9 from "../../assets/images/question/PythonBugfixer.png";
@@ -61,7 +62,7 @@ const CreativeAgency = () => {
                       efficient, error-free SQL queries without knowing SQL.
                       It's time to take back your time!
                     </p>
-                    <Link to="about-v2" className="theme-btn-one ripple-btn">
+                    <Link to="/sign" className="theme-btn-one ripple-btn">
                       Get Started its Free
                     </Link>
                   </div>
@@ -392,23 +393,31 @@ const CreativeAgency = () => {
             </ul>
           </div>
         </div>
+        <div className="row align-items-center mb-75 lg-mb-50 md-mb-20 mt-40">
+          {/* End .col */}
+
+          <div className="col-lg-3 ms-auto">
+            <ul className="skills">
+              <li>SQL</li>
+              <li>NOSQL</li>
+              <li>JOINS</li>
+              <li>AGGREGATE</li>
+              <li>STORED PROCEDURE</li>
+              <li>VIEW</li>
+            </ul>
+          </div>
+          <div className="col-xl-9 col-lg-9">
+            <img src={Img17} />
+          </div>
+        </div>
         <div className="d-flex justify-content-center align-items-center">
           {" "}
-          <Link to="about-v2" className="theme-btn-one ripple-btn">
+          <Link to="/sign" className="theme-btn-one ripple-btn">
             Start your free trial
           </Link>
         </div>
       </div>
-      <div className="engine-section mt-120">
-        <h3 className="text-center fw-bold">Supported DB Engines</h3>
-        <p className="text-center mt-30">
-          AI2sql helps you efficiently generate SQL code for different
-          databases.
-        </p>{" "}
-        <div className="row mt-40">
-          <FeatureSection />
-        </div>
-      </div>
+
       <div className="engine-section mt-80 container">
         <h3 className="text-center fw-bold">Lets share some numbers</h3>
         <p className="text-center mt-30">

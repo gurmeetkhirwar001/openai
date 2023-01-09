@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/role-supports-aria-props */
 /* eslint-disable jsx-a11y/alt-text */
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "../../assets/images/logo/vCamp_01.png";
 import MegaMenuOne from "../common/header/mega-menu/MegaMenuOne";
 import MobileMenuContent from "../common/header/mega-menu/MobileMenuContent";
@@ -10,8 +10,14 @@ import userDropdownData from "../common/header/mega-menu/dropdown-data/userDropd
 import CustomLink from "../common/header/mega-menu/CustomLink";
 import User from "../../assets/images/icon/user.png";
 import jwtDecode from "jwt-decode";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { GetUser } from "../../redux/actions/userAction";
 const Header = () => {
   const [navbar, setNavbar] = useState(false);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { userdetail } = useSelector((state) => state.user);
   const decodedtoken = jwtDecode(localStorage.getItem("token"));
   const changeBackground = () => {
     if (window.scrollY >= 95) {
@@ -20,9 +26,23 @@ const Header = () => {
       setNavbar(false);
     }
   };
-
+  const userToken = localStorage.getItem("token");
+  useEffect(() => {
+    async function getUser() {
+      dispatch(GetUser());
+    }
+    if (userToken !== null) {
+      getUser();
+    }
+  }, []);
+  console.log(userToken);
   window.addEventListener("scroll", changeBackground);
-
+  const Logout = (e) => {
+    console.log("hello");
+    e.preventDefault();
+    localStorage.removeItem("token");
+    setTimeout(() => navigate("/"), 1000);
+  };
   return (
     <header
       className={`theme-main-menu2 sticky-menu theme-menu-two border-bottom p-4 ${
@@ -65,7 +85,7 @@ const Header = () => {
           </nav>
           {/* End navbar */}
 
-          {localStorage.getItem("token") && (
+          {userToken !== null && (
             <div className="right-widget d-flex align-items-center">
               <div className="nav-item dropdown mega-dropdown-sm">
                 <img
@@ -85,18 +105,24 @@ const Header = () => {
                             <h6 className="mega-menu-title">{item.title}</h6>
                             <div className="style-none mega-dropdown-list">
                               {item.menuList.map((list, i) => (
-                                <div key={i}>
-                                  <CustomLink
+                                <div
+                                  key={i}
+                                  className="dropdown-item"
+                                  onClick={(e) =>
+                                    list.name === "Logout" && Logout(e)
+                                  }
+                                >
+                                  {/* <CustomLink
                                     to={list.routeLink}
-                                    className="dropdown-item"
-                                  >
-                                    <span>
-                                      {list.name}{" "}
-                                      {list.name == "Number of Request"
-                                        ? `:    ${decodedtoken.requestBalance}`
-                                        : ""}
-                                    </span>
-                                  </CustomLink>
+                                    
+                                  > */}
+                                  <span>
+                                    {list.name}{" "}
+                                    {list.name == "Number of Request"
+                                      ? `:    ${userdetail?.requestBalance}`
+                                      : ""}
+                                  </span>
+                                  {/* </CustomLink> */}
                                 </div>
                               ))}
                             </div>

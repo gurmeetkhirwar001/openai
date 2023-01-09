@@ -20,3 +20,13 @@
 @import "./scss/style.scss";
 @import "./scss/custom-reactify.scss";
 @import "./scss/responsive.scss";
+
+
+.btn-class {
+    background-color: #be6355;
+    color: #fff;
+}
+.btn-class:hover{
+    background-color: #2b395d;
+    color: #fff;
+}

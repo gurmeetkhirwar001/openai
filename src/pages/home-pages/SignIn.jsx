@@ -55,7 +55,9 @@ const SignIn = () => {
             <h2 className="font-recoleta">
               Hi <span>buddy</span>, welcome <br /> Back!
             </h2>
-
+            <p className="header-info pt-20 pb-50 lg-pb-30">
+              Don't have an account? Signup <Link to="/sign-up"> here</Link>
+            </p>
             <Login />
             <p className="text-center copyright-text">
               Copyright @2022 InMusic Digital .

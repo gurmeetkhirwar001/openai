@@ -6,16 +6,18 @@ import UseCaseIcon from "../../assets/images/icon/usercase.png";
 import { useNavigate } from "react-router-dom";
 export default function UseCases() {
   const navigate = useNavigate();
+  const [searched, SetSearched] = useState([]);
+  const [searching, setSearching] = useState(false);
   const [cases, setCases] = useState([
     {
-      type: "text",
-      name: "Text",
+      type: "convertfromPySparktoSQL",
+      name: "PySpark to SQL",
       icon: UseCaseIcon,
       description: "Answer questions based on existing knowledge.",
     },
     {
-      type: "convertfromPySparktoSQL",
-      name: "Convert from PySparktoSQL",
+      type: "convertfromPandastoPySpark",
+      name: "Pandas to PySpark",
       icon: UseCaseIcon,
       description: "Answer questions based on existing knowledge.",
     },
@@ -27,73 +29,67 @@ export default function UseCases() {
     },
     {
       type: "CalculateTheTimeComplexity",
-      name: "Calculate The Time Complexity",
+      name: "Get Time Complexity",
       icon: UseCaseIcon,
       description: "Answer questions based on existing knowledge.",
     },
     {
       type: "PythontoNaturalLanguage",
-      name: "Python to Natural Language",
+      name: "Python to English",
       icon: UseCaseIcon,
       description: "Answer questions based on existing knowledge.",
     },
     {
       type: "ParseUnstructureddata",
-      name: "Parse Unstructured data",
+      name: "Convert Unstructured to Structured Data",
       icon: UseCaseIcon,
       description: "Answer questions based on existing knowledge.",
     },
     {
       type: "SQLTranslate",
-      name: "SQL Translate",
+      name: "English to SQL",
       icon: UseCaseIcon,
       description: "Answer questions based on existing knowledge.",
     },
     {
       type: "Summarizefora2ndgrader",
-      name: "Summarize for a 2nd grader",
+      name: "Text Summarizer",
       icon: UseCaseIcon,
       description: "Answer questions based on existing knowledge.",
     },
     {
       type: "NaturalLanguagetoScala",
-      name: "Natural Language to Scala",
+      name: "English to Scala",
       icon: UseCaseIcon,
       description: "Answer questions based on existing knowledge.",
     },
     {
       type: "NaturalLanguagetoJava",
-      name: "Natural Language to Java",
+      name: "English to Java",
       icon: UseCaseIcon,
       description: "Answer questions based on existing knowledge.",
     },
     {
       type: "PythonDocstring",
-      name: "Python Doc string",
+      name: "Get Doc String for Python Code",
       icon: UseCaseIcon,
       description: "Answer questions based on existing knowledge.",
     },
     {
       type: "PythonBugfixer",
-      name: "Python Bug fixer",
+      name: "Python Bug Fixer",
       icon: UseCaseIcon,
       description: "Answer questions based on existing knowledge.",
     },
     {
       type: "NaturalLanguagetoPython",
-      name: "Natural Language to Python",
-      icon: UseCaseIcon,
-      description: "Answer questions based on existing knowledge.",
-    },
-    {
-      type: "SqlQuery",
-      name: "SqlQuery",
+      name: "English to Python",
       icon: UseCaseIcon,
       description: "Answer questions based on existing knowledge.",
     },
     {
       type: "CodeForPlayground",
-      name: "Code For Playground",
+      name: "PlayArea",
       icon: UseCaseIcon,
       description: "Answer questions based on existing knowledge.",
     },
@@ -105,17 +101,29 @@ export default function UseCases() {
     },
     {
       type: "Explaincode",
-      name: "Explain code",
+      name: "Code Explanation",
       icon: UseCaseIcon,
       description: "Answer questions based on existing knowledge.",
     },
     {
       type: "writeJavaScript",
-      name: "Write JavaScript",
+      name: "English to JavaScript",
       icon: UseCaseIcon,
       description: "Answer questions based on existing knowledge.",
     },
   ]);
+
+  const HandleSearch = (e) => {
+    const query = e.target.value;
+    if (e.target.value !== "") {
+      setSearching(true);
+      const scases = cases.filter((casee) => casee.name.match(query));
+      SetSearched(scases);
+    } else {
+      setSearching(false);
+    }
+  };
+  const dataArray = searching == true ? searched : cases;
   return (
     <div className="main-page-wrapper light-bg">
       <Seo title={"Use Cases"} />
@@ -146,7 +154,9 @@ export default function UseCases() {
           </div>
         </div>
       </div>
-      <div className="container px-4 d-flex flex-column justify-content-center align-items-center mt-40">
+      <div
+        className={`container px-4 d-flex flex-column justify-content-center align-items-center mt-40`}
+      >
         <form>
           <div className="form-style-one2">
             <div className="input-group-meta mb-30">
@@ -156,19 +166,23 @@ export default function UseCases() {
                 placeholder="Search"
                 // value={firstName}
                 required
+                onChange={(e) => HandleSearch(e)}
               />
             </div>
           </div>
         </form>
         <div className="row gx-5">
-          {cases.map((caseobj) => (
+          {dataArray?.map((caseobj) => (
             <div className="col-md-4 col-xs-12 ">
               <div
-                className="d-flex justify-space-around align-items-center mb-10"
+                className={`d-flex  ${
+                  !searching && "justify-space-around  align-items-center"
+                } mb-10`}
                 style={{ cursor: "pointer" }}
                 onClick={() => {
                   navigate("/playground");
                   localStorage.setItem("type", caseobj.type);
+                  localStorage.setItem("typename", caseobj.name);
                 }}
               >
                 <p className="px-2 icon-class">

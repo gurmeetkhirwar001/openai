@@ -39,10 +39,7 @@ const SignUp = () => {
             <div className="logo">
               <Link to="/">
                 <img
-                  src={
-                    require("../../assets/images/logo/vCamp_01.svg")
-                      .default
-                  }
+                  src={require("../../assets/images/logo/vCamp_01.svg").default}
                   alt=""
                   width="127"
                 />
@@ -59,7 +56,7 @@ const SignUp = () => {
               Hi <span>buddy</span>, welcome <br /> Back!
             </h2>
             <p className="header-info pt-20 pb-50 lg-pb-30">
-              Have an account? Login <Link to="/sign-in"> here</Link>
+              Have an account? Login <Link to="/sign"> here</Link>
             </p>
 
             <SignupForm />
