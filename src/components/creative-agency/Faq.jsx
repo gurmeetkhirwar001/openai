@@ -15,7 +15,7 @@ const Faq = () => {
                   data-bs-toggle="collapse"
                   data-bs-target="#collapseOne"
                 >
-                  What is GPT-3 and how does it work?
+                  What is Answergenie and how it works?
                 </button>
               </div>
               <div
@@ -25,14 +25,13 @@ const Faq = () => {
               >
                 <div className="accordion-body">
                   <p>
-                    OpenAI is a non-profit research company established by Elon
-                    Musk, Sam Altman and others to develop and research advanced
-                    artificial intelligence technology. The company recently
-                    released their newest research project named GPT-3, an AI
-                    based system designed to predict human behavior based off of
-                    text. This uses techniques from Natural Language Processing
-                    (NLP) which means it’s looking at formal grammatical
-                    structures in order to learn language.
+                    Answergenie is a company that has built an AI model on top
+                    of GPT-3, which has been fine-tuned on custom datasets for
+                    various applications. The company has just released its
+                    newest AI model, a text-based AI system designed to predict
+                    human behaviour. This uses Natural Language Processing (NLP)
+                    techniques, which means it evaluates formal grammatical
+                    structures to learn language.
                   </p>
                 </div>
               </div>
@@ -46,7 +45,7 @@ const Faq = () => {
                   data-bs-toggle="collapse"
                   data-bs-target="#collapseTwo"
                 >
-                  How do you get the best SQL queries?
+                  How do you get the best content/code?
                 </button>
               </div>
               <div
@@ -56,8 +55,8 @@ const Faq = () => {
               >
                 <div className="accordion-body">
                   <p>
-                    With AI2sql, you can simply write what you want the query to
-                    do and get the best result with tables and data.
+                  Enter your question and hit the submit button to obtain precise answers. There are examples for each use case, you can refer to them if you have any issues.
+
                   </p>
                 </div>
               </div>
@@ -80,7 +79,9 @@ const Faq = () => {
                 data-bs-parent="#accordionTwo"
               >
                 <div className="accordion-body">
-                  <p>DM me on Twitter 👉🏻 https://twitter.com/mustafaergisi</p>
+                  <p>
+                    Please do email me on <a href="">hello@answergenie.co</a>
+                  </p>
                 </div>
               </div>
             </div>

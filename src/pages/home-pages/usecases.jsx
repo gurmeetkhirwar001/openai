@@ -2,7 +2,7 @@ import React from "react";
 import Seo from "../../components/common/seo/Seo";
 import Header from "../../components/creative-agency/Header";
 import { useState } from "react";
-import UseCaseIcon from "../../assets/images/icon/usercase.png";
+import UseCaseIcon from "../../assets/images/icon/mlogo.jpg";
 import { useNavigate } from "react-router-dom";
 export default function UseCases() {
   const navigate = useNavigate();

@@ -2,7 +2,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import logo from "../../assets/images/logo/vCamp_01.png";
+import logo from "../../assets/images/icon/toplogo.png";
 import MegaMenuOne from "../common/header/mega-menu/MegaMenuOne";
 import MobileMenuContent from "../common/header/mega-menu/MobileMenuContent";
 import TopPopupSearchCanvas from "./TopPopupSearchCanvas";

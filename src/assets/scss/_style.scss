@@ -2572,7 +2572,8 @@ body .theme-btn-eighteen:hover:before {
 }
 .icon-class img{
   margin: 0 auto;
-  margin-top: 10px;
+  width: 54px;
+  height: 34px;
 }
 .form-style-one2 .input-group-meta input,
 .form-style-one2 .input-group-meta textarea,
@@ -2974,7 +2975,7 @@ body .theme-btn-eighteen:hover:before {
   position: relative;
   z-index: 2;
   padding: 150px 0 0;
-  height: 1800px;
+  height: 2256px;
 }
 .hero-banner-two2 {
   background: url(../images/shape/shape_02.svg) no-repeat center;
@@ -13110,10 +13111,16 @@ padding-left: 0;
 .price-list{
   padding-left: 0;
   margin-top: 2rem;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 1.4rem;
 }
 .price-list li{
   margin-bottom: 1rem;
   font-weight: bold;
+  list-style: none;
 }
 .price-div{
   background-color: #e5e5e536;
@@ -13122,6 +13129,7 @@ padding-left: 0;
 .price-div .card{
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   border: 0;
+  height: 760px;
 }
 .profile-details input{
   width: 100%;

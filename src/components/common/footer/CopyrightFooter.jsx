@@ -30,15 +30,7 @@ const CopyrightFooter = () => {
       <div className="col-lg-4 order-lg-1 mb-15">
         <p className="copyright text-center">
           {" "}
-          Copyright @{new Date().getFullYear()}{" "}
-          <a
-            href="https://themeforest.net/user/ib-themes/portfolio"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            ib-themes
-          </a>{" "}
-          Ltd.
+          Answergenie 2023 <a href="">hello@answergenie.co</a>
         </p>
       </div>
       {/* End .col */}
