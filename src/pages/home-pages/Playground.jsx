@@ -7,7 +7,7 @@ import "react-responsive-modal/styles.css";
 import Dot from "../../assets/images/icon/dots.png";
 import Refresh from "../../assets/images/icon/refer.png";
 import Loader from "../../assets/images/assets/loader.gif";
-import copy from "../../assets/images/icon/copy.png";
+import copy from "../../assets/images/icon/copyblack.png";
 import Delivery from "../../assets/images/icon/delivery.png";
 import ProtectedRoute from "../../utils/ProtectedRoute";
 import { useState } from "react";
@@ -205,8 +205,7 @@ const Playground = (props) => {
     }
   };
   const copyoutput = () => {
-    answertextarea.current.select();
-    document.execCommand("copy");
+    let value = answertextarea.current.value;
   };
   return (
     <ProtectedRoute>
@@ -261,8 +260,10 @@ const Playground = (props) => {
                   <div className="d-flex justify-content-end mt-40">
                     <Link
                       to="#"
-                      className="theme-btn-green ripple-btn"
-                      onClick={() => copyoutput()}
+                      className=" ripple-btn"
+                      onClick={() =>
+                        navigator.clipboard.writeText(textBoxValue)
+                      }
                     >
                       {<img src={copy} />}
                     </Link>

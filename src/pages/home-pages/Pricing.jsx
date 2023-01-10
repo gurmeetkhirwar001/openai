@@ -11,7 +11,8 @@ import useRazorpay from "react-razorpay";
 import { ToastContainer, toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { GetUser } from "../../redux/actions/userAction";
-import Check from "../../assets/images/icon/checkico.png";
+import Check from "../../assets/images/icon/check.png";
+import Cross from "../../assets/images/icon/cross.png";
 
 const Pricing = () => {
   const dispatch = useDispatch();
@@ -85,7 +86,7 @@ const Pricing = () => {
         <p className="text-center">Every plan includes 30 day free trial</p>
         <div className="container mt-60">
           <diuv className="row">
-            <div className="col-sm-12 col-md-4 mt-4">
+            <div className="col-sm-12 col-md-3 mt-4">
               <div class="card">
                 <div class="card-body">
                   <div className="text-center">
@@ -94,11 +95,57 @@ const Pricing = () => {
                   </div>
 
                   <h3 class="card-title text-center fw-bold mt-40">
-                    $9.99/month
+                    $29.9/month
                   </h3>
                   <p class="card-text mt-20 text-center">
                     Billed annually or monthly
                   </p>
+                  <div className="border-bottom "></div>
+                  <ul className="price-list">
+                    <li>
+                      <div className="d-flex justify-content-center align-items-center ">
+                        <img src={Check} />
+                        <div className="ms-1">70 runs/month</div>
+                      </div>
+                    </li>
+
+                    <li>
+                      <div className="d-flex justify-content-center align-items-center ">
+                        <img src={Check} />
+                        <div className="ms-1">Basic Support</div>
+                      </div>
+                    </li>
+                    <li>
+                      <div className="d-flex justify-content-center align-items-center ">
+                        <img src={Cross} height={30} width={30} />
+                        <div className="ms-1">Access to beta features</div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+                <div className="d-flex justify-content-center align-items-center">
+                  <button
+                    type="button"
+                    class="btn-class btn btn-light p-4 mt-4 fw-bold"
+                    onClick={() => HandleOrder(10)}
+                  >
+                    Try For Free
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div className="col-sm-12 col-md-3 mt-4">
+              <div class="card">
+                <div class="card-body">
+                  <div className="text-center">
+                    <h3 className="fw-bold pt-20">Startup</h3>
+                    <p className="pt-10">For small marketing teams</p>
+                  </div>
+
+                  <h3 class="card-title text-center fw-bold mt-40">
+                    $49.9 /month
+                  </h3>
+                  <p class="card-text mt-20 text-center">Billed monthly</p>
                   <div className="border-bottom "></div>
                   <ul className="price-list">
                     <li>
@@ -110,34 +157,13 @@ const Pricing = () => {
                     <li>
                       <div className="d-flex justify-content-center align-items-center ">
                         <img src={Check} />
-                        <div className="ms-1">No watermark</div>
+                        <div className="ms-1">Basic Support</div>
                       </div>
                     </li>
                     <li>
                       <div className="d-flex justify-content-center align-items-center ">
-                        <img src={Check} />
-                        <div className="ms-1">AI Meme Search Engine</div>
-                      </div>
-                    </li>
-                    <li>
-                      <div className="d-flex justify-content-center align-items-center ">
-                        <img src={Check} />
-                        <div className="ms-1">
-                          {" "}
-                          Multilingual Memes (110+ Languages)
-                        </div>
-                      </div>
-                    </li>
-                    <li>
-                      <div className="d-flex justify-content-center align-items-center ">
-                        <img src={Check} />
-                        <div className="ms-1">Text to memes</div>
-                      </div>
-                    </li>
-                    <li>
-                      <div className="d-flex justify-content-center align-items-center ">
-                        <img src={Check} />
-                        <div className="ms-1">Saved memes</div>
+                        <img src={Cross} height={30} width={30} />
+                        <div className="ms-1">Access to beta features</div>
                       </div>
                     </li>
                   </ul>
@@ -153,73 +179,7 @@ const Pricing = () => {
                 </div>
               </div>
             </div>
-            <div className="col-sm-12 col-md-4 mt-4">
-              <div class="card">
-                <div class="card-body">
-                  <div className="text-center">
-                    <h3 className="fw-bold pt-20">Startup</h3>
-                    <p className="pt-10">For small marketing teams</p>
-                  </div>
-
-                  <h3 class="card-title text-center fw-bold mt-40">
-                    $24.99 /month
-                  </h3>
-                  <p class="card-text mt-20 text-center">Billed annually</p>
-                  <div className="border-bottom "></div>
-                  <ul className="price-list">
-                    <li>
-                      <div className="d-flex justify-content-center align-items-center ">
-                        <img src={Check} />
-                        <div className="ms-1">Unlimited runs</div>
-                      </div>
-                    </li>
-                    <li>
-                      <div className="d-flex justify-content-center align-items-center ">
-                        <img src={Check} />
-                        <div className="ms-1">No watermark</div>
-                      </div>
-                    </li>
-                    <li>
-                      <div className="d-flex justify-content-center align-items-center ">
-                        <img src={Check} />
-                        <div className="ms-1">AI Meme Search Engine</div>
-                      </div>
-                    </li>
-                    <li>
-                      <div className="d-flex justify-content-center align-items-center ">
-                        <img src={Check} />
-                        <div className="ms-1">
-                          {" "}
-                          Multilingual Memes (110+ Languages)
-                        </div>
-                      </div>
-                    </li>
-                    <li>
-                      <div className="d-flex justify-content-center align-items-center ">
-                        <img src={Check} />
-                        <div className="ms-1">Text to memes</div>
-                      </div>
-                    </li>
-                    <li>
-                      <div className="d-flex justify-content-center align-items-center ">
-                        <img src={Check} />
-                        <div className="ms-1">Priority Support</div>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-                <div className="d-flex justify-content-center align-items-center">
-                  <button
-                    type="button"
-                    class="btn-class btn btn-light p-4 mt-4 fw-bold"
-                    onClick={() => HandleOrder(10)}
-                  >
-                    Try For Free
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div className="col-sm-12 col-md-4 mt-4">
+            <div className="col-sm-12 col-md-3 mt-4">
               <div class="card">
                 <div class="card-body">
                   <div className="text-center">
@@ -228,7 +188,7 @@ const Pricing = () => {
                   </div>
 
                   <h3 class="card-title text-center fw-bold mt-40">
-                    $83.99 /month
+                    $119.9/month
                   </h3>
                   <p class="card-text mt-20 text-center">Billed annually</p>
                   <div className="border-bottom "></div>
@@ -236,31 +196,64 @@ const Pricing = () => {
                     <li>
                       <div className="d-flex justify-content-center align-items-center ">
                         <img src={Check} />
-                        <div className="ms-1">Everything in Startup Plan</div>
+                        <div className="ms-1">250 runs/month</div>
                       </div>
                     </li>
                     <li>
                       <div className="d-flex justify-content-center align-items-center ">
                         <img src={Check} />
-                        <div className="ms-1"> APIs (1,000 requests/mo)</div>
+                        <div className="ms-1">Priority Support</div>
                       </div>
                     </li>
                     <li>
                       <div className="d-flex justify-content-center align-items-center ">
                         <img src={Check} />
-                        <div className="ms-1">Company Themed Memes*</div>
+                        <div className="ms-1">Access to beta features</div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+                <div className="d-flex justify-content-center align-items-center">
+                  <button
+                    type="button"
+                    class="btn-class btn btn-light p-4 mt-4 fw-bold"
+                    onClick={() => HandleOrder(10)}
+                  >
+                    Try For Free
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div className="col-sm-12 col-md-3 mt-4">
+              <div class="card">
+                <div class="card-body">
+                  <div className="text-center">
+                    <h3 className="fw-bold pt-20">Ultimate</h3>
+                    <p className="pt-10">For businesses</p>
+                  </div>
+
+                  <h3 class="card-title text-center fw-bold mt-40">
+                    $209.9 /month
+                  </h3>
+                  <p class="card-text mt-20 text-center">Billed annually</p>
+                  <div className="border-bottom "></div>
+                  <ul className="price-list">
+                    <li>
+                      <div className="d-flex justify-content-center align-items-center ">
+                        <img src={Check} />
+                        <div className="ms-1">Unlimited runs/month</div>
                       </div>
                     </li>
                     <li>
                       <div className="d-flex justify-content-center align-items-center ">
                         <img src={Check} />
-                        <div className="ms-1"> 3 Team Members*</div>
+                        <div className="ms-1">Priority Support</div>
                       </div>
                     </li>
                     <li>
                       <div className="d-flex justify-content-center align-items-center ">
                         <img src={Check} />
-                        <div className="ms-1"> Access to beta features</div>
+                        <div className="ms-1">Access to beta features</div>
                       </div>
                     </li>
                   </ul>

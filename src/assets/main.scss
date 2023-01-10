@@ -23,13 +23,15 @@
 
 
 .btn-class {
-    background-color: #5E5DF0;
+    background-color: #324983;
     color: #fff;
     width: 230px;
     margin-bottom: 4rem;
     border-radius: 50px;
 }
 .btn-class:hover{
-    background-color: #2b395d;
-    color: #fff;
+    background-color: transparent;
+    color: #000;
+    border: 1px solid #324983;
+    transition: 0.3s;
 }

@@ -17,6 +17,9 @@ import Modal from "react-responsive-modal";
 import Header from "../../components/creative-agency/Header";
 import Computer from "../../assets/images/icon/computer.png";
 import Sit from "../../assets/images/icon/siting.png";
+import Header1 from "../../assets/images/icon/img1.jpeg";
+import Header2 from "../../assets/images/icon/img2.jpeg";
+import Header3 from "../../assets/images/icon/img3.jpeg";
 import Img3 from "../../assets/images/icon/img3.svg";
 import Img17 from "../../assets/images/question/PandastoPySpark.png";
 import Img1 from "../../assets/images/question/JavaScript.png";
@@ -394,7 +397,7 @@ const CreativeAgency = () => {
                 {/* End .col */}
 
                 <div className="col-lg-5 ms-auto" data-aos="fade-left">
-                  <img src={Img7} />
+                  <img src={Header1} />
                 </div>
                 {/* End .col */}
               </div>
@@ -403,7 +406,7 @@ const CreativeAgency = () => {
             <div className="mt-70">
               <div className="row align-items-center mb-75 lg-mb-50 md-mb-20">
                 <div className="col-lg-5" data-aos="fade-left">
-                  <img src={Sit} />
+                  <img src={Header2} />
                 </div>
                 <div className="col-xl-6 col-lg-5" data-aos="fade-left">
                   <div className="title-style-one ">
@@ -443,7 +446,7 @@ const CreativeAgency = () => {
                 {/* End .col */}
 
                 <div className="col-lg-5 ms-auto" data-aos="fade-left">
-                  <img src={Img3} />
+                  <img src={Header3} />
                 </div>
                 {/* End .col */}
               </div>
@@ -465,7 +468,7 @@ const CreativeAgency = () => {
         </div>
         <div className="row align-items-center mb-75 lg-mb-50 md-mb-20 mt-40">
           <div className="col-xl-9 col-lg-9 section-img" data-aos="fade-left">
-            <img src={sectionOne} />
+            <img src={sectionOne} className="imag" />
           </div>
           {/* End .col */}
 
@@ -502,12 +505,12 @@ const CreativeAgency = () => {
             </ul>
           </div>
           <div className="col-xl-9 col-lg-9 section-img" data-aos="fade-left">
-            <img src={sectionSecond} />
+            <img src={sectionSecond} className="imag" />
           </div>
         </div>
         <div className="row align-items-center mb-75 lg-mb-50 md-mb-20 mt-40">
           <div className="col-xl-9 col-lg-9 section-img" data-aos="fade-left">
-            <img src={sectionThird} />
+            <img src={sectionThird} className="imag" />
           </div>
           {/* End .col */}
 
@@ -544,7 +547,7 @@ const CreativeAgency = () => {
             </ul>
           </div>
           <div className="col-xl-9 col-lg-9 section-img" data-aos="fade-left">
-            <img src={sectionFourth} />
+            <img src={sectionFourth} className="imag" />
           </div>
         </div>
         <div className="row align-items-center mb-75 lg-mb-50 md-mb-20 mt-40">
