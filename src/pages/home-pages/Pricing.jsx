@@ -83,7 +83,9 @@ const Pricing = () => {
 
       <div className="price-div mt-140">
         <h3 className="text-center fw-bold  pt-40">Pricing plans</h3>
-        <p className="text-center">Every plan includes 30 day free trial</p>
+        <p className="text-center">
+          Every plan includes 5 demo runs as free trial
+        </p>
         <div className="container mt-60">
           <diuv className="row">
             <div className="col-sm-12 col-md-3 mt-4">

@@ -8,6 +8,7 @@ const Signup = () => {
   //   const passwordHandler = () => setPassword(!password);
 
   const [confirmPassword, setConfirmPassword] = useState(false);
+  const [passwordloader, setPasswordloader] = useState(false);
   const confirmPasswordHandler = () => setConfirmPassword(!confirmPassword);
   const dispatch = useDispatch();
   const [firstName, setFirstName] = useState("");
@@ -15,7 +16,7 @@ const Signup = () => {
   const [message, setMessage] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  // const passwordHandler = () => setPassword(!password);
+  const passwordHandler = () => setPasswordloader(!passwordloader);
   const navigate = useNavigate();
   const HandleSignup = async (e) => {
     e.preventDefault();
@@ -89,12 +90,12 @@ const Signup = () => {
               className="pass_log_id"
               required={true}
             />
-            {/* <span className="placeholder_icon">
+            <span className="placeholder_icon">
               <span
                 className={password ? "passVicon eye-slash" : "passVicon"}
                 onClick={passwordHandler}
               ></span>
-            </span> */}
+            </span>
           </div>
         </div>
 

@@ -271,7 +271,7 @@ const CreativeAgency = () => {
     } else if (type === "CalculateTheTimeComplexity") {
       setSectionOneImage(Img15);
     } else if (type === "PythontoNaturalLanguage") {
-      setSectionOneImage(Img9);
+      setSectionOneImage(Img11);
     } else if (type === "ParseUnstructureddata") {
       setSectionOneImage(Img7);
     } else if (type === "convertfromPandastoPySpark") {
@@ -408,7 +408,7 @@ const CreativeAgency = () => {
                 <div className="col-lg-5" data-aos="fade-left">
                   <img src={Header2} />
                 </div>
-                <div className="col-xl-6 col-lg-5" data-aos="fade-left">
+                <div className="col-xl-6 col-lg-5 mr-4" data-aos="fade-left">
                   <div className="title-style-one ">
                     <h4 className="title mb-60">
                       Content creation, text summarization, generating questions

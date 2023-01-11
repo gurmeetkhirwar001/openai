@@ -244,7 +244,7 @@ const Playground = (props) => {
 
                 <div className="bottom-content">
                   <ul>
-                    <li>
+                    <li className="mt-4">
                       {" "}
                       <Link
                         to="#"
