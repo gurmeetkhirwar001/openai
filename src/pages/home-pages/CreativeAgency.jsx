@@ -28,10 +28,11 @@ import Img2 from "../../assets/images/question/ExplainCode.png";
 import Img4 from "../../assets/images/question/Java.png";
 import Img5 from "../../assets/images/question/JavaScripttoPython.png";
 import Img7 from "../../assets/images/question/ParseUnstructuredData.png";
-import Img8 from "../../assets/images/question/Playground.png";
 import Img9 from "../../assets/images/question/PythonBugfixer.png";
 import Img10 from "../../assets/images/question/PythonDocstring.png";
-import Img11 from "../../assets/images/question/Python.png";
+import Img8 from "../../assets/images/question/Playarea.png";
+import Img11 from "../../assets/images/question/pythontoenglish.png";
+import QA from "../../assets/images/question/QA.png";
 import Img12 from "../../assets/images/question/Scala.png";
 import Img13 from "../../assets/images/question/SQL.png";
 import Img14 from "../../assets/images/question/Summarizer.png";
@@ -44,7 +45,6 @@ import Essay from "../../assets/images/question/Essay.png";
 import Excel from "../../assets/images/question/Excel.png";
 import Extract from "../../assets/images/question/Extract.png";
 import General from "../../assets/images/question/General.png";
-import QA from "../../assets/images/question/questioning.png";
 import Marketing from "../../assets/images/question/marketing.png";
 import Marketingnumbers from "../../assets/images/question/marketingnumbers.png";
 import multiplechoice from "../../assets/images/question/multiplechoice.png";
@@ -151,7 +151,7 @@ const CreativeAgency = () => {
     },
     {
       type: "CodeForPlayground",
-      name: "PlayArea",
+      name: "Play Area",
       description: "Answer questions based on existing knowledge.",
     },
     {
@@ -292,6 +292,8 @@ const CreativeAgency = () => {
       setSectionSecondImage(Img12);
     } else if (type === "PythonBugfixer") {
       setSectionSecondImage(Img9);
+    } else if (type === "CodeForPlayground") {
+      setSectionSecondImage(Img8);
     } else if (type === "NaturalLanguagetoPython") {
       setSectionSecondImage(Img11);
     }
@@ -411,8 +413,9 @@ const CreativeAgency = () => {
                 <div className="col-xl-7 col-lg-7" data-aos="fade-left">
                   <div className="title-style-one leftSpace">
                     <h4 className="title mb-60 f54">
-                      Content creation, text summarization,generating <br/> questions
-                      and coding are<br/> time-consuming tasks
+                      Content creation, text summarization,generating <br />{" "}
+                      questions and coding are
+                      <br /> time-consuming tasks
                     </h4>
                     <p className="mb-40 mt-20">
                       Why not complete the task with a single click?
@@ -492,7 +495,7 @@ const CreativeAgency = () => {
 
           <div className="col-lg-3 ms-auto">
             <ul className="skills">
-              {cases?.slice(7, 13).map((ca) => (
+              {cases?.slice(7, 14).map((ca) => (
                 <li
                   className={`${
                     localStorage.getItem("hometype") === ca.type ? "active" : ""

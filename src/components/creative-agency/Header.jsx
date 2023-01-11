@@ -110,8 +110,13 @@ const Header = () => {
                                     key={i}
                                     className="dropdown-item"
                                     onClick={(e) =>
-                                      list.name === "Logout" && Logout(e)
+                                      list.name === "Logout"
+                                        ? Logout(e)
+                                        : list.name === "Profile"
+                                        ? navigate(list.routerLink)
+                                        : ""
                                     }
+                                    style={{ cursor: "pointer" }}
                                   >
                                     <span>
                                       <span>

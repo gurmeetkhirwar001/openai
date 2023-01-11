@@ -8,6 +8,9 @@ const getCurrentuser = async (params) =>
       Authorization: localStorage.getItem("token"),
     },
   });
-
-const data = { SignIn, LogIn, getCurrentuser };
+const updateProfile = async (params, id) =>
+  Config.patch(`/user/updateuser/${id}`, params);
+const updatePassword = async (params, id) =>
+  Config.patch(`/user/updatepassword/${id}`, params);
+const data = { SignIn, LogIn, getCurrentuser, updateProfile, updatePassword };
 export default data;

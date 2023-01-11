@@ -22,10 +22,10 @@ import Img5 from "../../assets/images/question/JavaScripttoPython.png";
 import Img6 from "../../assets/images/question/pandaspark.png";
 import Img17 from "../../assets/images/question/PandastoPySpark.png";
 import Img7 from "../../assets/images/question/ParseUnstructuredData.png";
-import Img8 from "../../assets/images/question/Playground.png";
+import Img8 from "../../assets/images/question/Playarea.png";
 import Img9 from "../../assets/images/question/PythonBugfixer.png";
 import Img10 from "../../assets/images/question/PythonDocstring.png";
-import Img11 from "../../assets/images/question/Python.png";
+import Img11 from "../../assets/images/question/pythontoenglish.png";
 import Img12 from "../../assets/images/question/Scala.png";
 import Img13 from "../../assets/images/question/SQL.png";
 import Img14 from "../../assets/images/question/Summarizer.png";
@@ -38,7 +38,7 @@ import Essay from "../../assets/images/question/Essay.png";
 import Excel from "../../assets/images/question/Excel.png";
 import Extract from "../../assets/images/question/Extract.png";
 import General from "../../assets/images/question/General.png";
-import QA from "../../assets/images/question/questioning.png";
+import QA from "../../assets/images/question/QA.png";
 import Marketing from "../../assets/images/question/marketing.png";
 import Marketingnumbers from "../../assets/images/question/marketingnumbers.png";
 import multiplechoice from "../../assets/images/question/multiplechoice.png";
@@ -65,6 +65,7 @@ const Playground = (props) => {
   const [data, setData] = useState({
     type: localStorage.getItem("type"),
     text: "",
+    qatext: "",
   });
 
   const setModalImage = () => {
@@ -81,7 +82,7 @@ const Playground = (props) => {
         img = Img15;
         return img;
       case "PythontoNaturalLanguage":
-        img = Img9;
+        img = Img11;
 
         return img;
       case "ParseUnstructureddata":
@@ -113,6 +114,7 @@ const Playground = (props) => {
         return img;
       case "CodeForPlayground":
         img = Img8;
+        return img;
       case "convertfromPandastoPySpark":
         img = Img17;
 
@@ -193,7 +195,15 @@ const Playground = (props) => {
       toast.info("Your request balance is finished. Please buy requests");
       setTimeout(() => navigate("/price"), 1000);
     } else {
-      const res = await dispatch(PlaygroundAction(data));
+      const { type, text, qatext } = data;
+      const newData = {
+        type,
+        text:
+          localStorage.getItem("type") === "QuestionAndAnswering"
+            ? `${text} ${qatext}`
+            : text,
+      };
+      const res = await dispatch(PlaygroundAction(newData));
       if (res?.status_code == 200) {
         setTextBox(true);
         setTextBoxValue(res?.data?.choices[0]?.text);
@@ -207,6 +217,16 @@ const Playground = (props) => {
   const copyoutput = () => {
     let value = answertextarea.current.value;
   };
+  const textansweraread =
+    localStorage.getItem("type") === "view"
+      ? `CREATE VIEW ${textBoxValue}`
+      : localStorage.getItem("type") === "storeprocedure"
+      ? `CREATE PROCEDURE ${textBoxValue}`
+      : localStorage.getItem("type") === "anisql" ||
+        localStorage.getItem("type") === "oraclesql" ||
+        localStorage.getItem("type") === "postgresql"
+      ? `SELECT ${textBoxValue}`
+      : textBoxValue;
   return (
     <ProtectedRoute>
       <Seo title={`${localStorage.getItem("typename")} || Playground`} />
@@ -241,7 +261,22 @@ const Playground = (props) => {
                   required
                   onChange={(e) => setData({ ...data, text: e.target.value })}
                 ></textarea>
-
+                {localStorage.getItem("type") === "QuestionAndAnswering" && (
+                  <div className="row">
+                    <div className="col-md-6">
+                      <div className="profile-details">
+                        {" "}
+                        <input
+                          type={"text"}
+                          placeholder="enter a question"
+                          onChange={(e) =>
+                            setData({ ...data, qatext: e.target.value })
+                          }
+                        />
+                      </div>
+                    </div>
+                  </div>
+                )}
                 <div className="bottom-content">
                   <ul>
                     <li className="mt-4">
@@ -276,7 +311,7 @@ const Playground = (props) => {
                     name="message"
                     ref={answertextarea}
                     required
-                    value={textBoxValue}
+                    value={textansweraread}
                     disabled={true}
                   ></textarea>
                 )}

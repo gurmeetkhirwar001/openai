@@ -1,7 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import Modal from "react-responsive-modal";
+import "react-responsive-modal/styles.css";
+import { useState } from "react";
 const FooterMenuList = () => {
+  const [open, setOpen] = useState(false);
   const footerMenuContent = [
     {
       id: 1,
@@ -18,7 +21,7 @@ const FooterMenuList = () => {
       title: "Support",
       colClass: "col-lg-3 col-md-3",
       list: [
-        { name: "hello@answergenie.co. ", routeLink: "/" },
+        { name: "Contact Us ", routeLink: "#" },
         { name: "FAQ", routeLink: "#faq" },
       ],
     },
@@ -48,12 +51,24 @@ const FooterMenuList = () => {
           <ul className="footer-nav-link style-none ms-3">
             {menuItem.list.map((list, i) => (
               <li key={i}>
-                <a href={list.routeLink}>{list.name}</a>
+                <a
+                  href={list.routeLink}
+                  onClick={(e) => {
+                    if (list.routeLink === "#") {
+                      setOpen(true);
+                    }
+                  }}
+                >
+                  {list.name}
+                </a>
               </li>
             ))}
           </ul>
         </div>
       ))}
+      <Modal open={open} onClose={() => setOpen(false)} center>
+        <p style={{ padding: 10 }}>Mail us at: hello@answergenie.co</p>
+      </Modal>
     </>
   );
 };

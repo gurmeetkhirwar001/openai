@@ -222,7 +222,9 @@ export default function UseCases() {
     const query = e.target.value;
     if (e.target.value !== "") {
       setSearching(true);
-      const scases = cases.filter((casee) => casee.name.match(query));
+      const scases = cases.filter((casee) =>
+        casee.name.toLowerCase().match(query.toLowerCase())
+      );
       SetSearched(scases);
     } else {
       setSearching(false);

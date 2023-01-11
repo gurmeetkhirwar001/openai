@@ -26,6 +26,23 @@ export const GetUser = () => async (dispatch) => {
   });
   return res.data;
 };
+export const UpdateUser = (params) => async (dispatch) => {
+  const res = await UserApi.updateProfile(params, params._id);
+  dispatch({
+    type: User.UPDATE_USER,
+    payload: res.data,
+  });
+  return res.data;
+};
+export const UpdatePassword = (params) => async (dispatch) => {
+  console.log(params);
+  const res = await UserApi.updatePassword(params, params._id);
+  dispatch({
+    type: User.UPDATE_PASSWORD,
+    payload: res.data,
+  });
+  return res.data;
+};
 
 // export const VerifyUser = (params) => async (dispatch) => {
 //   const res = await UserApi.verifyMail(params);

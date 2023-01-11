@@ -17,8 +17,8 @@ function PrivacyPolicy() {
             <p>
               This privacy policy ("Policy") describes how the personally
               identifiable information ("Personal Information") you may provide
-              on the answergenie.co website ("Website" or "Service") and any of its
-              related products and services (collectively, "Services") is
+              on the answergenie.co website ("Website" or "Service") and any of
+              its related products and services (collectively, "Services") is
               collected, protected and used. It also describes the choices
               available to you regarding our use of your Personal Information
               and how you can access and update this information. This Policy is
@@ -550,7 +550,7 @@ function PrivacyPolicy() {
               If you would like to contact us to understand more about this
               Policy or wish to contact us concerning any matter relating to
               individual rights and your Personal Information, you may send an
-              email to support@answergenie.co This document was last updated on
+              email to hello@answergenie.co This document was last updated on
               August 21, 2020
             </p>
           </div>

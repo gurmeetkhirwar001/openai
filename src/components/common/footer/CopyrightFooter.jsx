@@ -4,8 +4,8 @@ import CopyrightSocial from "./CopyrightSocial";
 
 const CopyrightFooter = () => {
   const footerList = [
-    { id: 1, name: "Privacy & Terms.", routeLink: "/faq-v1" },
-    { id: 2, name: " hello@answergenie.co", routeLink: "/contact-v1" },
+    { id: 1, name: "Privacy & Terms.", routeLink: "/privacy-policy" },
+    { id: 2, name: " hello@answergenie.co" },
   ];
   return (
     <div className="row">
@@ -30,7 +30,7 @@ const CopyrightFooter = () => {
       <div className="col-lg-4 order-lg-1 mb-15">
         <p className="copyright text-center">
           {" "}
-          Answergenie 2023 <a href="">hello@answergenie.co</a>
+          Answergenie {new Date().getFullYear()}
         </p>
       </div>
       {/* End .col */}

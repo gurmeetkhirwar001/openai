@@ -15,6 +15,7 @@ const Signup = () => {
   const [lastName, setLastName] = useState("");
   const [message, setMessage] = useState("");
   const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
   const passwordHandler = () => setPasswordloader(!passwordloader);
   const navigate = useNavigate();
@@ -29,6 +30,7 @@ const Signup = () => {
           lastName,
           email,
           password,
+          phone,
         })
       );
       if (response?.Status_code == 200) {
@@ -75,6 +77,18 @@ const Signup = () => {
               type="email"
               onChange={(e) => setEmail(e.target.value)}
               placeholder="rshdkabir@gmail.com"
+              required={true}
+            />
+          </div>
+        </div>
+        <div className="col-12">
+          <div className="input-group-meta mb-30">
+            <label>Phone</label>
+            <input
+              type="text"
+              onChange={(e) => setPhone(e.target.value)}
+              placeholder="Enter your phone number"
+              max={10}
               required={true}
             />
           </div>

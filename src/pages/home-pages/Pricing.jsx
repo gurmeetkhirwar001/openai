@@ -99,9 +99,7 @@ const Pricing = () => {
                   <h3 class="card-title text-center fw-bold mt-40">
                     $29.9/month
                   </h3>
-                  <p class="card-text mt-20 text-center">
-                   Billed Monthly
-                  </p>
+                  <p class="card-text mt-20 text-center">Billed Monthly</p>
                   <div className="border-bottom "></div>
                   <ul className="price-list">
                     <li>
@@ -153,7 +151,7 @@ const Pricing = () => {
                     <li>
                       <div className="d-flex justify-content-center align-items-center ">
                         <img src={Check} />
-                        <div className="ms-1">100 runs/month</div>
+                        <div className="ms-1">130 runs/month</div>
                       </div>
                     </li>
                     <li>
@@ -198,7 +196,7 @@ const Pricing = () => {
                     <li>
                       <div className="d-flex justify-content-center align-items-center ">
                         <img src={Check} />
-                        <div className="ms-1">250 runs/month</div>
+                        <div className="ms-1">350 runs/month</div>
                       </div>
                     </li>
                     <li>
