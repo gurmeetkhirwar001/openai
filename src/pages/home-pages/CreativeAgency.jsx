@@ -408,11 +408,11 @@ const CreativeAgency = () => {
                 <div className="col-lg-5" data-aos="fade-left">
                   <img src={Header2} />
                 </div>
-                <div className="col-xl-6 col-lg-5" data-aos="fade-left">
-                  <div className="title-style-one ">
-                    <h4 className="title mb-60">
-                      Content creation, text summarization, generating questions
-                      and coding are time-consuming tasks
+                <div className="col-xl-7 col-lg-7" data-aos="fade-left">
+                  <div className="title-style-one leftSpace">
+                    <h4 className="title mb-60 f54">
+                      Content creation, text summarization,generating <br/> questions
+                      and coding are<br/> time-consuming tasks
                     </h4>
                     <p className="mb-40 mt-20">
                       Why not complete the task with a single click?
@@ -429,7 +429,7 @@ const CreativeAgency = () => {
               <div className="row align-items-center mb-75 lg-mb-50 md-mb-20">
                 <div className="col-xl-6 col-lg-5" data-aos="fade-right">
                   <div className="title-style-one ">
-                    <h4 className="title mb-60">
+                    <h4 className="title mb-60 f54">
                       Use Answergenie to quickly and precisely generate content,
                       code, questions, essays, removes plagiarism etc.
                     </h4>
