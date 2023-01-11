@@ -83,7 +83,9 @@ const Pricing = () => {
 
       <div className="price-div mt-140">
         <h3 className="text-center fw-bold  pt-40">Pricing plans</h3>
-        <p className="text-center">Every plan includes 30 day free trial</p>
+        <p className="text-center mt-20">
+          Every plan includes 5 demo runs as free trial
+        </p>
         <div className="container mt-60">
           <diuv className="row">
             <div className="col-sm-12 col-md-3 mt-4">
@@ -98,7 +100,7 @@ const Pricing = () => {
                     $29.9/month
                   </h3>
                   <p class="card-text mt-20 text-center">
-                    Billed annually or monthly
+                   Billed Monthly
                   </p>
                   <div className="border-bottom "></div>
                   <ul className="price-list">
@@ -190,7 +192,7 @@ const Pricing = () => {
                   <h3 class="card-title text-center fw-bold mt-40">
                     $119.9/month
                   </h3>
-                  <p class="card-text mt-20 text-center">Billed annually</p>
+                  <p class="card-text mt-20 text-center">Billed Monthly</p>
                   <div className="border-bottom "></div>
                   <ul className="price-list">
                     <li>
@@ -235,7 +237,7 @@ const Pricing = () => {
                   <h3 class="card-title text-center fw-bold mt-40">
                     $209.9 /month
                   </h3>
-                  <p class="card-text mt-20 text-center">Billed annually</p>
+                  <p class="card-text mt-20 text-center">Billed Monthly</p>
                   <div className="border-bottom "></div>
                   <ul className="price-list">
                     <li>

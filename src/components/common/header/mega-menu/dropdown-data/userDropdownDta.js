@@ -4,6 +4,7 @@ const userDropdownData = [
     menuList: [
       { name: "Logout", routeLink: "" },
       { name: "Number of Request", routeLink: "javascript:void(0)" },
+      {name: "Profile",routerLink:"/profile"}
     ],
   },
 ];

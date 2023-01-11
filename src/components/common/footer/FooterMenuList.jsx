@@ -9,8 +9,8 @@ const FooterMenuList = () => {
       colClass: "col-lg-3 col-md-3",
       list: [
         { name: "Home", routeLink: "/" },
-        { name: "Pricing", routeLink: "/" },
-        { name: "About Us", routeLink: "/" },
+        { name: "Pricing", routeLink: "/price" },
+        { name: "About Us", routeLink: "/#home" },
       ],
     },
     {
@@ -18,8 +18,8 @@ const FooterMenuList = () => {
       title: "Support",
       colClass: "col-lg-3 col-md-3",
       list: [
-        { name: "Add Contact", routeLink: "/" },
-        { name: "FAQ", routeLink: "/" },
+        { name: "hello@answergenie.co. ", routeLink: "/" },
+        { name: "FAQ", routeLink: "#faq" },
       ],
     },
     // {
@@ -40,12 +40,15 @@ const FooterMenuList = () => {
   return (
     <>
       {footerMenuContent.map((menuItem) => (
-        <div className={`${menuItem.colClass} col-lg-4 d-flex  flex-column align-items-center `} key={menuItem.id}>
+        <div
+          className={`${menuItem.colClass} col-lg-4 d-flex  flex-column align-items-center `}
+          key={menuItem.id}
+        >
           <h6 className="footer-title">{menuItem.title}</h6>
           <ul className="footer-nav-link style-none ms-3">
             {menuItem.list.map((list, i) => (
               <li key={i}>
-                <Link to={list.routeLink}>{list.name}</Link>
+                <a href={list.routeLink}>{list.name}</a>
               </li>
             ))}
           </ul>

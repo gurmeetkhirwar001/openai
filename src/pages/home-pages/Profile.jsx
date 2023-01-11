@@ -11,85 +11,66 @@ const Pro = () => {
 
       <Header />
       <div className="profile container mt-140">
-        <div className="d-flex justify-content-between align-items-center">
-          <div className="d-flex align-items-center">
-            <img src={Profile} />
-            <div>
-              <h3 className="fw-bold">Profile</h3>
-              <p>Uodate your profile details</p>
-            </div>
-          </div>
-          <div className="d-flex">
-            <button type="button" className="btn btn-outline-dark me-2">
-              Cancel
-            </button>
-            <button type="button" className="btn btn-dark ">
-              Save
-            </button>
-          </div>
-        </div>
         <div className="profile-details">
           <div className="row">
-            <div className="col-3">
+            <div className="col-md-6">
               <div className="input-group-meta">
-                <label className="fw-bold mt-10">Username</label>
+                <label className="fw-bold mt-10">First Name</label>
+                <input
+                  type="username"
+                  // onChange={(e) => setEmail(e.target.value)}
+                  placeholder=""
+                  required
+                />
+              </div>
+              <div className="input-group-meta">
+                <label className="fw-bold mt-10">Email</label>
+                <input
+                  type="email"
+                  // onChange={(e) => setEmail(e.target.value)}
+                  placeholder=""
+                  required
+                />
               </div>
             </div>
-            <div className="col-8">
-              <input
-                type="username"
-                // onChange={(e) => setEmail(e.target.value)}
-                placeholder=""
-                required
-              />
+            <div className="col-md-6">
+              <div className="input-group-meta">
+                <label className="fw-bold mt-10">Last Name</label>
+                <input
+                  type="username"
+                  // onChange={(e) => setEmail(e.target.value)}
+                  placeholder=""
+                  required
+                />
+              </div>
+              <div className="input-group-meta">
+                <label className="fw-bold mt-10">Plan</label>
+                <input
+                  type=""
+                  // onChange={(e) => setEmail(e.target.value)}
+                  placeholder=""
+                  required
+                />
+              </div>
             </div>
           </div>
-          <div className="row mt-50">
-            <div className="col-3">
+          <div className="row">
+            <div className="col-md-6">
               <div className="input-group-meta">
-                <label className="fw-bold mt-10">Website</label>
+                <label className="fw-bold mt-10">Password</label>
+                <input
+                  type="password"
+                  // onChange={(e) => setEmail(e.target.value)}
+                  placeholder=""
+                  required
+                />
               </div>
+             
             </div>
-            <div className="col-8">
-              <input
-                type=""
-                // onChange={(e) => setEmail(e.target.value)}
-                placeholder=""
-                required
-              />
-            </div>
-          </div>
-          <div className="row mt-50">
-            <div className="col-3">
-              <div className="input-group-meta">
-                <label className="fw-bold mt-10">Job Title</label>
-              </div>
-            </div>
-            <div className="col-8">
-              <input
-                type=""
-                // onChange={(e) => setEmail(e.target.value)}
-                placeholder=""
-                required
-              />
-            </div>
-          </div>
-          <div className="row mt-50">
-            <div className="col-3">
-              <div className="input-group-meta">
-                <label className="fw-bold mt-10">
-                  Your Bio<span className="d-block">short introduction</span>
-                </label>
-              </div>
-            </div>
-            <div className="col-8">
-              <textarea
-                class="form-control"
-                placeholder="Leave a comment here"
-                id="floatingTextarea"
-                style={{height: "200px"}}
-              ></textarea>
-            </div>
+            
+            <div className="col-md-4"> <button className="theme-btn-one mt-40 mb-50">
+                Change Pasword
+              </button></div>
           </div>
         </div>
       </div>

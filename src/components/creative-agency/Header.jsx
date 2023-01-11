@@ -84,7 +84,7 @@ const Header = () => {
           {/* End navbar */}
 
           <div className="right-widget d-flex align-items-center">
-            <TopPopupSearchCanvas />
+            {/* <TopPopupSearchCanvas /> */}
             {/* End top popup search canvas */}
             {userToken !== null && (
               <div className="nav-item dropdown mega-dropdown-sm">

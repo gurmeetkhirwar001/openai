@@ -111,7 +111,7 @@ const CreativeAgency = () => {
     },
     {
       type: "ParseUnstructureddata",
-      name: "Convert Unstructured to Structured Data",
+      name: "Parse Unstructured Data",
       description: "Answer questions based on existing knowledge.",
     },
     {
@@ -271,7 +271,7 @@ const CreativeAgency = () => {
     } else if (type === "CalculateTheTimeComplexity") {
       setSectionOneImage(Img15);
     } else if (type === "PythontoNaturalLanguage") {
-      setSectionOneImage(Img9);
+      setSectionOneImage(Img11);
     } else if (type === "ParseUnstructureddata") {
       setSectionOneImage(Img7);
     } else if (type === "convertfromPandastoPySpark") {
@@ -353,7 +353,7 @@ const CreativeAgency = () => {
     }
   };
   return (
-    <div className="main-page-wrapper light-bg">
+    <div className="main-page-wrapper light-bg" id="home">
       <Seo title="Home" />
       {/* End Seo Related data */}
 
@@ -590,7 +590,7 @@ const CreativeAgency = () => {
 				Counter Section One
 			=====================================================
 			--> */}
-      <div className="faq mt-80 container">
+      <div className="faq mt-80 container" id="faq">
         <h3 className="text-center fw-bold">Frequently Asked Questions</h3>
         <p className="text-center mt-40 f-24">
           Got a question? We've got answers.

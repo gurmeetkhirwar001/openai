@@ -41,7 +41,7 @@ export default function UseCases() {
     },
     {
       type: "ParseUnstructureddata",
-      name: "Convert Unstructured to Structured Data",
+      name: "Parse Unstructured Data",
       icon: UseCaseIcon,
       description: "Answer questions based on existing knowledge.",
     },
@@ -100,12 +100,6 @@ export default function UseCases() {
       description: "Answer questions based on existing knowledge.",
     },
 
-    {
-      type: "Explaincode",
-      name: "Code Explanation",
-      icon: UseCaseIcon,
-      description: "Answer questions based on existing knowledge.",
-    },
     {
       type: "VBACode",
       name: "VBA Code",
@@ -175,12 +169,6 @@ export default function UseCases() {
     {
       type: "MarketResearch",
       name: "Market Research",
-      icon: UseCaseIcon,
-      description: "Answer questions based on existing knowledge.",
-    },
-    {
-      type: "ParseUnstructureddata",
-      name: "Parse Unstructured data",
       icon: UseCaseIcon,
       description: "Answer questions based on existing knowledge.",
     },

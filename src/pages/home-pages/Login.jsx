@@ -4,15 +4,18 @@ import { useDispatch } from "react-redux";
 import { UserLogin } from "../../redux/actions/userAction";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
-
+import Loader from "../../assets/images/assets/loader.gif";
 const LoginForm = () => {
   const [email, setEmail] = useState("");
+  const [passwordloader, setPasswordloader] = useState(false);
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
-  const passwordHandler = () => setPassword(!password);
+  const [loader, setloader] = useState(false);
+  const passwordHandler = () => setPasswordloader(!passwordloader);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const onHandleLogin = async (e) => {
+    setloader(true);
     e.preventDefault();
     if (email == "" || password == "") {
       setMessage("All Fields are required");
@@ -24,10 +27,12 @@ const LoginForm = () => {
       })
     );
     if (res?.Status_code) {
+      setloader(false);
       toast.success(res?.message);
       localStorage.setItem("token", res?.Token);
       setTimeout(() => navigate("/playground"), 5000);
     } else {
+      setloader(false);
       toast.error(res?.message);
     }
   };
@@ -53,7 +58,7 @@ const LoginForm = () => {
           <div className="input-group-meta mb-25">
             <label>Password</label>
             <input
-              type={password ? "password text" : "password"}
+              type={passwordloader ? "password text" : "password"}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="Enter Password"
               className="pass_log_id"
@@ -75,10 +80,10 @@ const LoginForm = () => {
 
         <div className="col-12">
           <div className="agreement-checkbox d-flex justify-content-between align-items-center">
-            <div>
+            {/* <div>
               <input type="checkbox" id="remember" />
               <label htmlFor="remember">Keep me logged in</label>
-            </div>
+            </div> */}
             {/* <a href="#">Forget Password?</a> */}
           </div>
           {/* <!-- /.agreement-checkbox --> */}
@@ -89,7 +94,7 @@ const LoginForm = () => {
             className="theme-btn-one w-100 mt-50 mb-50"
             onClick={onHandleLogin}
           >
-            Login
+            {loader ? "Sigin..." : "Login"}
           </button>
         </div>
       </div>
