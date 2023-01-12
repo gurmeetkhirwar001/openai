@@ -89,7 +89,7 @@ export default function UseCases() {
     },
     {
       type: "CodeForPlayground",
-      name: "PlayArea",
+      name: "Coding Area",
       icon: UseCaseIcon,
       description: "Answer questions based on existing knowledge.",
     },

@@ -151,7 +151,7 @@ const CreativeAgency = () => {
     },
     {
       type: "CodeForPlayground",
-      name: "Play Area",
+      name: "Coding Area",
       description: "Answer questions based on existing knowledge.",
     },
     {
