@@ -13130,7 +13130,6 @@ padding-left: 0;
   justify-content: center;
   align-items: center;
   margin-right: 1rem;
-  margin-top: 1rem;
 }
 .ms-1{
   font-size: 1rem;
@@ -13160,7 +13159,8 @@ padding-left: 0;
 }
 .price-div{
   background-color: #e5e5e536;
-  height: 100vh;
+  height: 100%;
+  padding-bottom: 2rem;
 }
 .price-div .card{
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;

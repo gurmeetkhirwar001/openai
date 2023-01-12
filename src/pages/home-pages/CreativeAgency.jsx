@@ -441,7 +441,7 @@ const CreativeAgency = () => {
                       you're one click away from the solvent. Why spend
                       considerable time? Begin without cost immediately.
                     </p>
-                    <Link to="about-v2" className="theme-btn-one ripple-btn">
+                    <Link to="/sign" className="theme-btn-one ripple-btn">
                       Get Started its Free
                     </Link>
                   </div>

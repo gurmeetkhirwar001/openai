@@ -279,7 +279,7 @@ const Playground = (props) => {
                 )}
                 <div className="bottom-content">
                   <ul>
-                    <li className="mt-4">
+                    <li className="mt-60">
                       {" "}
                       <Link
                         to="#"
@@ -292,28 +292,32 @@ const Playground = (props) => {
                   </ul>
                 </div>
                 {textBox && (
-                  <div className="d-flex justify-content-end mt-40">
-                    <Link
-                      to="#"
-                      className=" ripple-btn"
-                      onClick={() =>
-                        navigator.clipboard.writeText(textBoxValue)
-                      }
-                    >
-                      {<img src={copy} />}
-                    </Link>
-                  </div>
-                )}
-                {textBox && (
-                  <textarea
-                    placeholder="Your Output*"
-                    className="text-area"
-                    name="message"
-                    ref={answertextarea}
-                    required
-                    value={textansweraread}
-                    disabled={true}
-                  ></textarea>
+                  <>
+                    <div className="d-flex justify-content-between align-items-center mt-50">
+                      <h3 className="fw-bold">Below is your Answer</h3>
+                      <div className="">
+                        <div
+                          className=" ripple-btn"
+                          style={{ cursor: "pointer" }}
+                          onClick={() =>
+                            navigator.clipboard.writeText(textBoxValue)
+                          }
+                        >
+                          {<img src={copy} />}
+                        </div>
+                      </div>
+                    </div>
+
+                    <textarea
+                      placeholder="Your Output*"
+                      className="text-area"
+                      name="message"
+                      ref={answertextarea}
+                      required
+                      value={textansweraread}
+                      disabled={true}
+                    ></textarea>
+                  </>
                 )}
               </div>
             </div>
