@@ -26,6 +26,7 @@ import Img8 from "../../assets/images/question/Playarea.png";
 import Img9 from "../../assets/images/question/PythonBugfixer.png";
 import Img10 from "../../assets/images/question/PythonDocstring.png";
 import Img11 from "../../assets/images/question/pythontoenglish.png";
+import Python from "../../assets/images/question/Python.png";
 import Img12 from "../../assets/images/question/Scala.png";
 import Img13 from "../../assets/images/question/SQL.png";
 import Img14 from "../../assets/images/question/Summarizer.png";
@@ -110,7 +111,7 @@ const Playground = (props) => {
 
         return img;
       case "NaturalLanguagetoPython":
-        img = Img11;
+        img = Python;
         return img;
       case "CodeForPlayground":
         img = Img8;
@@ -208,6 +209,7 @@ const Playground = (props) => {
         setTextBox(true);
         setTextBoxValue(res?.data?.choices[0]?.text);
         setLoader(false);
+        setData({ ...data, text: "", qatext: "" });
       } else {
         toast.error(res?.message);
         setLoader(false);

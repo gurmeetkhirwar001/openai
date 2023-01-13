@@ -84,7 +84,22 @@ const Header = () => {
             </div>
           </nav>
           {/* End navbar */}
+          {userToken == null && (
+            <ul className="navbar-nav d-flex justify-content-between flex-row fw-bold hoverColor">
+              <li className="nav-item dropdown mega-dropdown-sm">
+                <Link to={"/sign"} className="nav-link">
+                  Signin
+                </Link>
+              </li>
 
+              <li className="nav-item dropdown mega-dropdown-sm ms-4">
+                <Link to={"/sign-up"} className="nav-link">
+                  Signup
+                </Link>
+              </li>
+              {/* End blog dropdown */}
+            </ul>
+          )}
           {userToken !== null && (
             <div className="right-widget d-flex align-items-center">
               <div className="nav-item dropdown mega-dropdown-sm">

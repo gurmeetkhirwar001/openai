@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { UserSignUp } from "../../redux/actions/userAction";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import CountryCodes from "country-codes-list";
 const Signup = () => {
   //   const [password, setPassword] = useState(false);
   //   const passwordHandler = () => setPassword(!password);
@@ -15,8 +16,11 @@ const Signup = () => {
   const [lastName, setLastName] = useState("");
   const [message, setMessage] = useState("");
   const [email, setEmail] = useState("");
+  const [countrycode, setCountryCode] = useState("");
   const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
+  const countrycodes = CountryCodes.all();
+  console.log(countrycodes);
   const passwordHandler = () => setPasswordloader(!passwordloader);
   const navigate = useNavigate();
   const HandleSignup = async (e) => {
@@ -30,7 +34,7 @@ const Signup = () => {
           lastName,
           email,
           password,
-          phone,
+          phone: `${countrycode}-${phone}`,
         })
       );
       if (response?.Status_code == 200) {
@@ -84,13 +88,27 @@ const Signup = () => {
         <div className="col-12">
           <div className="input-group-meta mb-30">
             <label>Phone</label>
-            <input
-              type="text"
-              onChange={(e) => setPhone(e.target.value)}
-              placeholder="Enter your phone number"
-              max={10}
-              required={true}
-            />
+            <div className="row">
+              <div className="col-md-2 input-group-meta">
+                <select onChange={(e) => setCountryCode(e.target.value)}>
+                  <option>+{countrycodes[0].countryCallingCode}</option>
+                  {countrycodes?.map((codes) => (
+                    <option value={`+${codes.countryCallingCode}`}>
+                      {`+${codes.countryCallingCode}`}
+                    </option>
+                  ))}
+                </select>
+              </div>
+              <div className="col-md-10">
+                <input
+                  type="text"
+                  onChange={(e) => setPhone(e.target.value)}
+                  placeholder="Enter your phone number"
+                  max={10}
+                  required={true}
+                />
+              </div>
+            </div>
           </div>
         </div>
 
