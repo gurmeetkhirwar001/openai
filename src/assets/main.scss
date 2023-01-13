@@ -35,3 +35,10 @@
     border: 1px solid #324983;
     transition: 0.3s;
 }
+.hoverColor li{
+    font-size: 16px;
+    letter-spacing: 1px;
+}
+.hoverColor :hover{
+    color: #ff2759;
+}

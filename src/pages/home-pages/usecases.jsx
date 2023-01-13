@@ -308,7 +308,13 @@ export default function UseCases() {
             ))}
           {!submenu &&
             dataArray?.map((caseobj) => (
-              <div className="col-md-4 col-xs-12 ">
+              <div
+                className={`${
+                  dataArray.length === 1 && searching
+                    ? "col-md-12 "
+                    : "col-md-4"
+                }  col-xs-12`}
+              >
                 <div
                   className={`d-flex  ${
                     !searching && "justify-space-around  align-items-center"

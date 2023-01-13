@@ -80,7 +80,7 @@ const Faq = () => {
               >
                 <div className="accordion-body">
                   <p>
-                    Please do email me on <a href="">hello@answergenie.co</a>
+                  Please email to <a href="">hello@answergenie.co</a>
                   </p>
                 </div>
               </div>

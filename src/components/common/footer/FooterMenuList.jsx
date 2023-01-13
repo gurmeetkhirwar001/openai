@@ -67,7 +67,9 @@ const FooterMenuList = () => {
         </div>
       ))}
       <Modal open={open} onClose={() => setOpen(false)} center>
-        <p style={{ padding: 10 }}>Mail us at: hello@answergenie.co</p>
+        <p style={{ padding: "1rem", paddingBottom: 0 }}>
+          Mail us at: hello@answergenie.co
+        </p>
       </Modal>
     </>
   );
