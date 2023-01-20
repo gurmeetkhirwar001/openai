@@ -21,7 +21,7 @@ const FooterMenuList = () => {
       title: "Support",
       colClass: "col-lg-3 col-md-3",
       list: [
-        { name: "Contact Us ", routeLink: "#contact-us" },
+        { name: "Contact Us ", routeLink: "/contact-us" },
         { name: "FAQ", routeLink: "#faq" },
       ],
     },

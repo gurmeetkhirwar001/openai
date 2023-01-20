@@ -86,7 +86,7 @@ const Pricing = () => {
                   </div>
 
                   <h3 class="card-title text-center fw-bold mt-40">
-                    $29.9/month
+                    $19.9/month
                   </h3>
                   <p class="card-text mt-20 text-center">Billed Monthly</p>
                   <div className="border-bottom "></div>
@@ -118,7 +118,7 @@ const Pricing = () => {
                     class="btn-class btn btn-light p-4 mt-4 fw-bold"
                     onClick={() =>
                       HandleOrder({
-                        amount: 29.9,
+                        amount: 19.9,
                         name: "Solo",
                       })
                     }
@@ -137,7 +137,7 @@ const Pricing = () => {
                   </div>
 
                   <h3 class="card-title text-center fw-bold mt-40">
-                    $49.9 /month
+                    $39.9 /month
                   </h3>
                   <p class="card-text mt-20 text-center">Billed monthly</p>
                   <div className="border-bottom "></div>
@@ -182,7 +182,7 @@ const Pricing = () => {
                   </div>
 
                   <h3 class="card-title text-center fw-bold mt-40">
-                    $119.9/month
+                    $89.9/month
                   </h3>
                   <p class="card-text mt-20 text-center">Billed Monthly</p>
                   <div className="border-bottom "></div>
@@ -227,7 +227,7 @@ const Pricing = () => {
                   </div>
 
                   <h3 class="card-title text-center fw-bold mt-40">
-                    $209.9 /month
+                    $139.9 /month
                   </h3>
                   <p class="card-text mt-20 text-center">Billed Monthly</p>
                   <div className="border-bottom "></div>

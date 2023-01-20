@@ -8,12 +8,13 @@ import SignIn from "../pages/home-pages/SignIn";
 import SignUp from "../pages/home-pages/SignUp";
 import SignupForm from "../pages/home-pages/SignupForm";
 
-
 import Pricing from "../pages/home-pages/Pricing";
 import Profile from "../pages/home-pages/Profile";
 import UseCases from "../pages/home-pages/usecases";
 import PrivacyPolicy from "../pages/home-pages/PrivacyPolicy";
 import TermandServices from "../pages/home-pages/term";
+import ContactUs from "../pages/home-pages/contactus";
+
 const AllRoutes = () => {
   return (
     <>
@@ -29,6 +30,7 @@ const AllRoutes = () => {
         <Route path="/use-cases" element={<UseCases />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/term-and-services" element={<TermandServices />} />
+        <Route path="/contact-us" element={<ContactUs />} />
 
         {/* <Route path="/signup" element={<SignupForm />} /> */}
       </Routes>
