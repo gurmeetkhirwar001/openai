@@ -21,7 +21,7 @@ const FooterMenuList = () => {
       title: "Support",
       colClass: "col-lg-3 col-md-3",
       list: [
-        { name: "Contact Us ", routeLink: "#" },
+        { name: "Contact Us ", routeLink: "#contact-us" },
         { name: "FAQ", routeLink: "#faq" },
       ],
     },
@@ -54,7 +54,7 @@ const FooterMenuList = () => {
                 <a
                   href={list.routeLink}
                   onClick={(e) => {
-                    if (list.routeLink === "#") {
+                    if (list.routeLink === "#contact-us") {
                       setOpen(true);
                     }
                   }}

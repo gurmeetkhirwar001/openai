@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { UserSignUp } from "../../redux/actions/userAction";
+import { UserSignUp, VerifyNumber } from "../../redux/actions/userAction";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import CountryCodes from "country-codes-list";
+import Select from "react-select";
 const Signup = () => {
   //   const [password, setPassword] = useState(false);
   //   const passwordHandler = () => setPassword(!password);
@@ -12,6 +13,8 @@ const Signup = () => {
   const [passwordloader, setPasswordloader] = useState(false);
   const confirmPasswordHandler = () => setConfirmPassword(!confirmPassword);
   const dispatch = useDispatch();
+  const [otp, setOtp] = useState(false);
+  const [otps, setOtps] = useState(false);
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [message, setMessage] = useState("");
@@ -20,7 +23,12 @@ const Signup = () => {
   const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
   const countrycodes = CountryCodes.all();
-  console.log(countrycodes);
+  const optiosn = countrycodes.map((code) => {
+    return {
+      value: `+${code?.countryCallingCode}`,
+      label: `+${code?.countryCallingCode}`,
+    };
+  });
   const passwordHandler = () => setPasswordloader(!passwordloader);
   const navigate = useNavigate();
   const HandleSignup = async (e) => {
@@ -38,14 +46,56 @@ const Signup = () => {
         })
       );
       if (response?.Status_code == 200) {
+        setOtp(true);
         toast.success(response?.message);
-        setTimeout(() => navigate("/"), 5000);
+        // setTimeout(() => navigate("/"), 5000);
       } else {
         toast.error(response?.message);
       }
     }
   };
-  return (
+  const handleverifyotp = async (e) => {
+    e.preventDefault();
+    const resp = await dispatch(VerifyNumber({ otp: otps }));
+
+    if (resp?.Status_code == 200) {
+      // setOtp(true);
+      toast.success(resp?.message);
+      setTimeout(() => navigate("/sign"), 5000);
+    } else {
+      toast.error(resp?.message);
+    }
+  };
+  return otp ? (
+    <form>
+      <p style={{ color: "red" }}>{message}</p>
+      <div className="row">
+        <div className="col-12">
+          <div className="input-group-meta mb-25">
+            <label>Enter OTP*</label>
+            <input
+              type={"number"}
+              onChange={(e) => setOtps(e.target.value)}
+              placeholder="Enter Password"
+              className="pass_log_id"
+              required={true}
+              value={otps}
+              // max={6}
+            />
+          </div>
+        </div>
+
+        <div className="col-12">
+          <button
+            className="theme-btn-one w-100 mt-50 mb-50"
+            onClick={(e) => handleverifyotp(e)}
+          >
+            Verify OTP
+          </button>
+        </div>
+      </div>
+    </form>
+  ) : (
     <form>
       <p style={{ color: "red" }}>{message}</p>
       <div className="row">
@@ -90,14 +140,35 @@ const Signup = () => {
             <label>Phone</label>
             <div className="row">
               <div className="col-md-2 input-group-meta">
-                <select onChange={(e) => setCountryCode(e.target.value)}>
-                  <option>+{countrycodes[0].countryCallingCode}</option>
-                  {countrycodes?.map((codes) => (
-                    <option value={`+${codes.countryCallingCode}`}>
-                      {`+${codes.countryCallingCode}`}
-                    </option>
-                  ))}
-                </select>
+                <Select
+                  onChange={(e) => setCountryCode(e.value)}
+                  options={optiosn}
+                  styles={{
+                    container: (baseStyles) => ({
+                      ...baseStyles,
+                      borderColor: "#000",
+                    }),
+                    control: (baseStyles, state) => ({
+                      ...baseStyles,
+                      height: 60,
+                      borderColor: "#000",
+                      border: "2px solid",
+                    }),
+                    input: (baseStyles) => ({
+                      ...baseStyles,
+                      height: 50,
+                    }),
+                    placeholder: (baseStyles) => ({
+                      ...baseStyles,
+                      color: "#000",
+                    }),
+                  }}
+                  placeholder={`+${countrycodes[0].countryCallingCode}`}
+                  components={{
+                    DropdownIndicator: () => null,
+                    IndicatorSeparator: () => null,
+                  }}
+                />
               </div>
               <div className="col-md-10">
                 <input
@@ -141,16 +212,16 @@ const Signup = () => {
               required={true}
             />
             {/* <span className="placeholder_icon">
-              <span
-                className={confirmPassword ? "eye-slash" : "passVicon"}
-                onClick={confirmPasswordHandler}
-              >
-                <img
-                  src={require("../../assets/images/icon/icon_67.svg").default}
-                  alt="icon"
-                />
-              </span>
-            </span> */}
+            <span
+              className={confirmPassword ? "eye-slash" : "passVicon"}
+              onClick={confirmPasswordHandler}
+            >
+              <img
+                src={require("../../assets/images/icon/icon_67.svg").default}
+                alt="icon"
+              />
+            </span>
+          </span> */}
           </div>
         </div>
 

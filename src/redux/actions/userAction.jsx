@@ -1,5 +1,5 @@
 import * as User from "../actionType/useractionType";
-import   UserApi from "../../services/user";
+import UserApi from "../../services/user";
 
 export const UserSignUp = (params) => async (dispatch) => {
   const res = await UserApi.SignIn(params);
@@ -11,7 +11,7 @@ export const UserSignUp = (params) => async (dispatch) => {
 };
 
 export const UserLogin = (params) => async (dispatch) => {
-  const res = await UserApi.LogIn (params);
+  const res = await UserApi.LogIn(params);
   dispatch({
     type: User.LOGIN_USER,
     payload: res.data,
@@ -43,7 +43,14 @@ export const UpdatePassword = (params) => async (dispatch) => {
   });
   return res.data;
 };
-
+export const VerifyNumber = (params) => async (dispatch) => {
+  const res = await UserApi.otpVerification(params);
+  dispatch({
+    type: "VERIFY_OTP",
+    payload: res.data,
+  });
+  return res.data;
+};
 // export const VerifyUser = (params) => async (dispatch) => {
 //   const res = await UserApi.verifyMail(params);
 //   dispatch({

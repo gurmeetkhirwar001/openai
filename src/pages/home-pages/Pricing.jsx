@@ -19,54 +19,43 @@ const Pricing = () => {
   const navigate = useNavigate();
   const Razorpay = useRazorpay();
   const { userdetail } = useSelector((state) => state.user);
-  const HandleOrder = async (amount) => {
-    const orderresponse = await dispatch(CreateOrder({ amount }));
-    console.log(process.env.REACT_APP_KEY_ID);
-    const options = {
-      key: process.env.REACT_APP_KEY_ID, // Enter the Key ID generated from the Dashboard
-      amount: orderresponse?.data?.amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
-      currency: "INR",
-      name: "Acme Corp",
-      description: "Test Transaction",
-      image: "https://example.com/your_logo",
-      order_id: orderresponse?.data?.order_id, //This is a sample Order ID. Pass the `id` obtained in the response of createOrder().
-      handler: async function (response) {
-        const response2 = await dispatch(
-          VerifyOrder({
-            razorpay_payment_id: response.razorpay_payment_id,
-            razorpay_order_id: orderresponse?.data?.order_id,
-            orderamount: amount,
-          })
-        );
-        dispatch(GetUser());
-        navigate("/use-cases");
-        toast.success(response2?.data?.message);
-      },
-      prefill: {
-        name: userdetail?.firstName,
+  const HandleOrder = async (params) => {
+    const orderresponse = await dispatch(
+      CreateOrder({
+        amount: params.amount,
+        name: params.name,
+        firstName: userdetail?.firstName,
         email: userdetail?.email,
-      },
-      notes: {
-        address: "Razorpay Corporate Office",
-      },
-      theme: {
-        color: "#3399cc",
-      },
-    };
+        phone: userdetail?.phone,
+      })
+    );
+    console.log(orderresponse.info);
+    const htmlSTRING = `<html>
+  <body>
+    <form action="${orderresponse.info.payu_url}" method="post" id="payu_form">
+      <input type="hidden" name="firstname" value="${orderresponse.info.first_name}"/>
+      <input type="hidden" name="email" value="${orderresponse.info.email}"/>
+      <input type="hidden" name="phone" value="${orderresponse.info.mobile}"/>
+      <input type="hidden" name="surl" value="${orderresponse.info.callback_url}"/>
+      <input type="hidden" name="curl" value="${orderresponse.info.payu_cancel_url}"/>
+      <input type="hidden" name="furl" value="${orderresponse.info.payu_fail_url}"/>
+      <input type="hidden" name="key" value="${orderresponse.info.payu_merchant_key}"/>
+      <input type="hidden" name="hash" value="${orderresponse.info.payu_sha_token}"/>
+      <input type="hidden" name="txnid" value="${orderresponse.info.txnid}"/>
+      <input type="hidden" name="productinfo" value="${orderresponse.info.plan_name}"/>
+      <input type="hidden" name="amount" value="${orderresponse.info.amount}"/>
+      <input type="hidden" name="service_provider" value="${orderresponse.info.service_provider}"/>
+      <input name="udf1" input type= "hidden" value="${orderresponse.info.udf1}"/>
+      <button type="submit" value="submit" #submitBtn></button>
+    </form>
+    <script type="text/javascript">document.getElementById("payu_form").submit();</script>
+  </body>
+</html>`;
+    const winUrl = URL.createObjectURL(
+      new Blob([htmlSTRING], { type: "text/html" })
+    );
 
-    const rzp1 = new Razorpay(options);
-
-    rzp1.on("payment.failed", function (response) {
-      alert(response.error.code);
-      alert(response.error.description);
-      alert(response.error.source);
-      alert(response.error.step);
-      alert(response.error.reason);
-      alert(response.error.metadata.order_id);
-      alert(response.error.metadata.payment_id);
-    });
-
-    rzp1.open();
+    window.location.href = winUrl;
   };
   return (
     <div className="main-page-wrapper light-bg">
@@ -127,7 +116,12 @@ const Pricing = () => {
                   <button
                     type="button"
                     class="btn-class btn btn-light p-4 mt-4 fw-bold"
-                    onClick={() => HandleOrder(10)}
+                    onClick={() =>
+                      HandleOrder({
+                        amount: 29.9,
+                        name: "Solo",
+                      })
+                    }
                   >
                     Try For Free
                   </button>

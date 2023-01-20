@@ -88,15 +88,10 @@ const Header = () => {
             <ul className="navbar-nav d-flex justify-content-between flex-row fw-bold hoverColor">
               <li className="nav-item dropdown mega-dropdown-sm">
                 <Link to={"/sign"} className="nav-link">
-                  Signin
+                  Login
                 </Link>
               </li>
 
-              <li className="nav-item dropdown mega-dropdown-sm ms-4">
-                <Link to={"/sign-up"} className="nav-link">
-                  Signup
-                </Link>
-              </li>
               {/* End blog dropdown */}
             </ul>
           )}

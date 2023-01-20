@@ -13,6 +13,7 @@ import Pricing from "../pages/home-pages/Pricing";
 import Profile from "../pages/home-pages/Profile";
 import UseCases from "../pages/home-pages/usecases";
 import PrivacyPolicy from "../pages/home-pages/PrivacyPolicy";
+import TermandServices from "../pages/home-pages/term";
 const AllRoutes = () => {
   return (
     <>
@@ -27,9 +28,9 @@ const AllRoutes = () => {
         <Route path="/profile" element={<Profile />} />
         <Route path="/use-cases" element={<UseCases />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/term-and-services" element={<TermandServices />} />
 
         {/* <Route path="/signup" element={<SignupForm />} /> */}
-
       </Routes>
     </>
   );

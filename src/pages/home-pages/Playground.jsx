@@ -281,7 +281,7 @@ const Playground = (props) => {
                 )}
                 <div className="bottom-content">
                   <ul>
-                    <li className="mt-60">
+                    <li className="mt-60 d-flex flex-column">
                       {" "}
                       <Link
                         to="#"
@@ -290,13 +290,14 @@ const Playground = (props) => {
                       >
                         {loader ? <img src={Loader} /> : "Submit"}
                       </Link>
+                      {loader && <p>AI is computing, hold on!</p>}
                     </li>
                   </ul>
                 </div>
                 {textBox && (
                   <>
                     <div className="d-flex justify-content-between align-items-center mt-50">
-                      <h3 className="fw-bold">Below is your Answer</h3>
+                      <h4 className="fw-bold">Below is your answer</h4>
                       <div className="">
                         <div
                           className=" ripple-btn"
