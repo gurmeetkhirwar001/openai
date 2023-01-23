@@ -13,61 +13,56 @@ import { useNavigate } from "react-router-dom";
 import { GetUser } from "../../redux/actions/userAction";
 import Check from "../../assets/images/icon/check.png";
 import Cross from "../../assets/images/icon/cross.png";
-
+import { useState } from "react";
+import Modal from "react-responsive-modal";
+import Payment from "./payment";
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
+import { useEffect } from "react";
+const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_KEY);
 const Pricing = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const Razorpay = useRazorpay();
+  const [open, setOpen] = useState(false);
+  const [intentmessage, setintentmessage] = useState(false);
+  const [paysecrete, setPayscerete] = useState("");
   const { userdetail } = useSelector((state) => state.user);
+  useEffect(() => {
+    async function handleVerifypayment() {
+      if (window.location.href.includes("payment_intent")) {
+        const intentid = window.location.href
+          .split("?")[1]
+          .split("&")[0]
+          .split("=")[1];
+        const response = await dispatch(VerifyOrder({ pid: intentid }));
+        console.log(response);
+        if (response.message === "Request Purchased Successfully") {
+          setintentmessage(true);
+          setOpen(true);
+        }
+      }
+    }
+    handleVerifypayment();
+  }, []);
   const HandleOrder = async (params) => {
-    const orderresponse = await dispatch(
+    const response = await dispatch(
       CreateOrder({
         amount: params.amount,
         name: params.name,
-        firstName: userdetail?.firstName,
-        email: userdetail?.email,
-        phone: userdetail?.phone,
+        customername: userdetail.firstName,
       })
     );
-    console.log(orderresponse.info);
-    const htmlSTRING = `<html>
-  <body>
-    <form action="${orderresponse.info.payu_url}" method="post" id="payu_form">
-      <input type="hidden" name="firstname" value="${orderresponse.info.first_name}"/>
-      <input type="hidden" name="email" value="${orderresponse.info.email}"/>
-      <input type="hidden" name="phone" value="${orderresponse.info.mobile}"/>
-      <input type="hidden" name="surl" value="${orderresponse.info.callback_url}"/>
-      <input type="hidden" name="curl" value="${orderresponse.info.payu_cancel_url}"/>
-      <input type="hidden" name="furl" value="${orderresponse.info.payu_fail_url}"/>
-      <input type="hidden" name="key" value="${orderresponse.info.payu_merchant_key}"/>
-      <input type="hidden" name="hash" value="${orderresponse.info.payu_sha_token}"/>
-      <input type="hidden" name="txnid" value="${orderresponse.info.txnid}"/>
-      <input type="hidden" name="productinfo" value="${orderresponse.info.plan_name}"/>
-      <input type="hidden" name="amount" value="${orderresponse.info.amount}"/>
-      <input type="hidden" name="service_provider" value="${orderresponse.info.service_provider}"/>
-      <input name="udf1" input type= "hidden" value="${orderresponse.info.udf1}"/>
-      <button type="submit" value="submit" #submitBtn></button>
-    </form>
-    <script type="text/javascript">document.getElementById("payu_form").submit();</script>
-  </body>
-</html>`;
-    const winUrl = URL.createObjectURL(
-      new Blob([htmlSTRING], { type: "text/html" })
-    );
-
-    window.location.href = winUrl;
+    console.log(response.info.client_secret, "response");
+    setPayscerete(response.info.client_secret);
+    if (response.info.client_secret) {
+      setOpen(true);
+    }
   };
   return (
     <div className="main-page-wrapper light-bg">
       <ToastContainer />
       <Seo title="Pricing" />
-      {/* End Seo Related data */}
-
-      {/* <!-- 
-      =============================================
-      Theme Main Menu
-      ============================================== 
-      --> */}
       <Header />
 
       <div className="price-div mt-140">
@@ -123,7 +118,7 @@ const Pricing = () => {
                       })
                     }
                   >
-                    Try For Free
+                    Try Now
                   </button>
                 </div>
               </div>
@@ -166,9 +161,14 @@ const Pricing = () => {
                   <button
                     type="button"
                     class="btn-class btn btn-light p-4 mt-4 fw-bold"
-                    onClick={() => HandleOrder(10)}
+                    onClick={() =>
+                      HandleOrder({
+                        amount: 39.9,
+                        name: "Startup",
+                      })
+                    }
                   >
-                    Try For Free
+                    Try Now
                   </button>
                 </div>
               </div>
@@ -211,9 +211,14 @@ const Pricing = () => {
                   <button
                     type="button"
                     class="btn-class btn btn-light p-4 mt-4 fw-bold"
-                    onClick={() => HandleOrder(10)}
+                    onClick={() =>
+                      HandleOrder({
+                        amount: 89.9,
+                        name: "Enterprise",
+                      })
+                    }
                   >
-                    Try For Free
+                    Try Now
                   </button>
                 </div>
               </div>
@@ -256,12 +261,47 @@ const Pricing = () => {
                   <button
                     type="button"
                     class="btn-class btn btn-light p-4 mt-4 fw-bold"
-                    onClick={() => HandleOrder(10)}
+                    onClick={() =>
+                      HandleOrder({
+                        amount: 139.9,
+                        name: "Ultimate",
+                      })
+                    }
                   >
-                    Try For Free
+                    Try Now
                   </button>
                 </div>
               </div>
+              <Modal open={open} onClose={() => setOpen(false)}>
+                {intentmessage ? (
+                  <div className="d-flex justify-content-center align-items-center flex-column">
+                    <img src={Check} />
+                    <br />
+                    <p>
+                      Payment Received SuccessFully! Request Balance is Updated
+                    </p>
+                    <br />
+                    <button
+                      class="btn-class btn btn-light  mt-4 fw-bold"
+                      onClick={() => {
+                        setOpen(false);
+                        navigate("/use-cases");
+                      }}
+                    >
+                      Close
+                    </button>
+                  </div>
+                ) : (
+                  <Elements
+                    stripe={stripePromise}
+                    options={{
+                      clientSecret: paysecrete,
+                    }}
+                  >
+                    <Payment />
+                  </Elements>
+                )}
+              </Modal>
             </div>
           </diuv>
         </div>
