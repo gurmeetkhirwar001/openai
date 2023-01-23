@@ -14,9 +14,9 @@ function ContactUs() {
       <Header />
       <div className="contact mt-160 container">
         <h3 className="fw-bold">Contact Us</h3>
-        <p className="mt-30">
+        {/* <p className="mt-30">
           Email: <a>hello@answergenie.co</a>
-        </p>
+        </p> */}
         <p>Number: +917207285097</p>
       </div>
       <div className="vcamp-footer-one">
