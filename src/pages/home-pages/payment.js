@@ -50,7 +50,9 @@ export default function Payment({ paysecrete }) {
   return (
     <form onSubmit={handleSubmit}>
       <PaymentElement />
-      <button>Submit</button>
+      <div className="d-flex justify-content-center align-items-center">
+        <button className="btn-class btn btn-light mt-4 fw-bold">Submit</button>
+      </div>
     </form>
   );
 }

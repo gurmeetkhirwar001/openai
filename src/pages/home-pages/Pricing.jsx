@@ -30,11 +30,8 @@ const Pricing = () => {
   const { userdetail } = useSelector((state) => state.user);
   useEffect(() => {
     async function handleVerifypayment() {
-      if (window.location.href.includes("payment_intent")) {
-        const intentid = window.location.href
-          .split("?")[1]
-          .split("&")[0]
-          .split("=")[1];
+      if (window.location.href.includes("session_id")) {
+        const intentid = window.location.href.split("?")[1].split("=")[1];
         const response = await dispatch(VerifyOrder({ pid: intentid }));
         console.log(response);
         if (response.message === "Request Purchased Successfully") {
@@ -48,16 +45,15 @@ const Pricing = () => {
   const HandleOrder = async (params) => {
     const response = await dispatch(
       CreateOrder({
-        amount: params.amount,
-        name: params.name,
-        customername: userdetail.firstName,
+        priceid: params.priceid,
       })
     );
-    console.log(response.info.client_secret, "response");
-    setPayscerete(response.info.client_secret);
-    if (response.info.client_secret) {
-      setOpen(true);
-    }
+    console.log(response.info.url, "response");
+    window.location.href = response.info.url;
+    // setPayscerete(response.info.client_secret);
+    // if (response.info.client_secret) {
+    //   setOpen(true);
+    // }
   };
   return (
     <div className="main-page-wrapper light-bg">
@@ -113,8 +109,7 @@ const Pricing = () => {
                     class="btn-class btn btn-light p-4 mt-4 fw-bold"
                     onClick={() =>
                       HandleOrder({
-                        amount: 19.9,
-                        name: "Solo",
+                        priceid: "price_1MTSpKSDAFNCBLsLCRJZPo7Q",
                       })
                     }
                   >
@@ -163,8 +158,7 @@ const Pricing = () => {
                     class="btn-class btn btn-light p-4 mt-4 fw-bold"
                     onClick={() =>
                       HandleOrder({
-                        amount: 39.9,
-                        name: "Startup",
+                        priceid: "price_1MTSpKSDAFNCBLsLnrEHWwt2",
                       })
                     }
                   >
@@ -213,8 +207,7 @@ const Pricing = () => {
                     class="btn-class btn btn-light p-4 mt-4 fw-bold"
                     onClick={() =>
                       HandleOrder({
-                        amount: 89.9,
-                        name: "Enterprise",
+                        priceid: "price_1MTSpKSDAFNCBLsLcngUZiJO",
                       })
                     }
                   >
@@ -263,8 +256,7 @@ const Pricing = () => {
                     class="btn-class btn btn-light p-4 mt-4 fw-bold"
                     onClick={() =>
                       HandleOrder({
-                        amount: 139.9,
-                        name: "Ultimate",
+                        priceid: "price_1MTSpKSDAFNCBLsLaUeaxIwh",
                       })
                     }
                   >
