@@ -550,8 +550,7 @@ function PrivacyPolicy() {
               If you would like to contact us to understand more about this
               Policy or wish to contact us concerning any matter relating to
               individual rights and your Personal Information, you may send an
-              email to hello@answergenie.co This document was last updated on
-              August 21, 2020
+              email to hello@answergenie.co.
             </p>
           </div>
         </div>
