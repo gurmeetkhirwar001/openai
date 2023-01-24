@@ -43,13 +43,17 @@ const Pricing = () => {
     handleVerifypayment();
   }, []);
   const HandleOrder = async (params) => {
-    const response = await dispatch(
-      CreateOrder({
-        priceid: params.priceid,
-      })
-    );
-    console.log(response.info.url, "response");
-    window.location.href = response.info.url;
+    if (localStorage.getItem("token") !== null) {
+      const response = await dispatch(
+        CreateOrder({
+          priceid: params.priceid,
+        })
+      );
+      console.log(response.info.url, "response");
+      window.location.href = response.info.url;
+    } else {
+      navigate("/sign");
+    }
     // setPayscerete(response.info.client_secret);
     // if (response.info.client_secret) {
     //   setOpen(true);

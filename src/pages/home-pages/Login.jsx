@@ -30,7 +30,7 @@ const LoginForm = () => {
       setloader(false);
       toast.success(res?.message);
       localStorage.setItem("token", res?.Token);
-      setTimeout(() => navigate("/playground"), 5000);
+      setTimeout(() => navigate("/use-cases"), 5000);
     } else {
       setloader(false);
       toast.error(res?.message);
