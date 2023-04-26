@@ -28,6 +28,16 @@ const Pricing = () => {
   const [intentmessage, setintentmessage] = useState(false);
   const [paysecrete, setPayscerete] = useState("");
   const { userdetail } = useSelector((state) => state.user);
+  const getCOuntry = () => {
+    fetch("https://extreme-ip-lookup.com/json/?key=OFPBW7Fp3UMAAmZGk3SA")
+      .then((res) => res.json())
+      .then((response) => {
+        localStorage.setItem("country", response?.country);
+      })
+      .catch((data, status) => {
+        console.log("Request failed:", data);
+      });
+  };
   useEffect(() => {
     async function handleVerifypayment() {
       if (window.location.href.includes("session_id")) {
@@ -40,8 +50,10 @@ const Pricing = () => {
         }
       }
     }
+    getCOuntry();
     handleVerifypayment();
   }, []);
+
   const HandleOrder = async (params) => {
     if (localStorage.getItem("token") !== null) {
       const response = await dispatch(
@@ -113,7 +125,10 @@ const Pricing = () => {
                     class="btn-class btn btn-light p-4 mt-4 fw-bold"
                     onClick={() =>
                       HandleOrder({
-                        priceid: "price_1MTSpKSDAFNCBLsLCRJZPo7Q",
+                        priceid:
+                          localStorage.getItem("country") === "India"
+                            ? "price_1MU8G8SDAFNCBLsL9OKwlcOZ"
+                            : "price_1MU2AoSDAFNCBLsLYeY2Oaej",
                       })
                     }
                   >
@@ -162,7 +177,10 @@ const Pricing = () => {
                     class="btn-class btn btn-light p-4 mt-4 fw-bold"
                     onClick={() =>
                       HandleOrder({
-                        priceid: "price_1MTSpKSDAFNCBLsLnrEHWwt2",
+                        priceid:
+                          localStorage.getItem("country") === "India"
+                            ? "price_1MU8GPSDAFNCBLsLxsLmAEt9"
+                            : "price_1MU2AoSDAFNCBLsLbSfPTVUc",
                       })
                     }
                   >
@@ -211,7 +229,10 @@ const Pricing = () => {
                     class="btn-class btn btn-light p-4 mt-4 fw-bold"
                     onClick={() =>
                       HandleOrder({
-                        priceid: "price_1MTSpKSDAFNCBLsLcngUZiJO",
+                        priceid:
+                          localStorage.getItem("country") === "India"
+                            ? "price_1MU8GZSDAFNCBLsLHQXLD3lM"
+                            : "price_1MTSpKSDAFNCBLsLcngUZiJO",
                       })
                     }
                   >
@@ -260,7 +281,10 @@ const Pricing = () => {
                     class="btn-class btn btn-light p-4 mt-4 fw-bold"
                     onClick={() =>
                       HandleOrder({
-                        priceid: "price_1MTSpKSDAFNCBLsLaUeaxIwh",
+                        priceid:
+                          localStorage.getItem("country") === "India"
+                            ? "price_1MU8GvSDAFNCBLsL6eflwDRk"
+                            : "price_1MU2AnSDAFNCBLsLGuzDMU14",
                       })
                     }
                   >

@@ -17,7 +17,7 @@ function ContactUs() {
         <p className="mt-30">
           Email: <a>hello@answergenie.co</a>
         </p>
-        <p>Number: +917207285097</p>
+        {/* <p>Number: +917207285097</p> */}
       </div>
       <div className="vcamp-footer-one">
         <div className="clearfix">

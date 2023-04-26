@@ -26,14 +26,16 @@ const LoginForm = () => {
         password,
       })
     );
-    if (res?.Status_code) {
+    console.log(res);
+    if (res?.Status_code == 200) {
       setloader(false);
       toast.success(res?.message);
       localStorage.setItem("token", res?.Token);
       setTimeout(() => navigate("/use-cases"), 5000);
     } else {
       setloader(false);
-      toast.error(res?.message);
+      console.log(res, "resss");
+      toast.error(res?.data?.message);
     }
   };
 

@@ -2,21 +2,29 @@ import * as User from "../actionType/useractionType";
 import UserApi from "../../services/user";
 
 export const UserSignUp = (params) => async (dispatch) => {
-  const res = await UserApi.SignIn(params);
-  dispatch({
-    type: User.REGISTER_USER,
-    payload: res.data,
-  });
-  return res.data;
+  try {
+    const res = await UserApi.SignIn(params);
+    dispatch({
+      type: User.REGISTER_USER,
+      payload: res.data,
+    });
+    return res.data;
+  } catch (e) {
+    return e.response;
+  }
 };
 
 export const UserLogin = (params) => async (dispatch) => {
-  const res = await UserApi.LogIn(params);
-  dispatch({
-    type: User.LOGIN_USER,
-    payload: res.data,
-  });
-  return res.data;
+  try {
+    const res = await UserApi.LogIn(params);
+    dispatch({
+      type: User.LOGIN_USER,
+      payload: res.data,
+    });
+    return res.data;
+  } catch (e) {
+    return e.response;
+  }
 };
 export const GetUser = () => async (dispatch) => {
   const res = await UserApi.getCurrentuser();

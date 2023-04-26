@@ -207,7 +207,7 @@ const Playground = (props) => {
       const res = await dispatch(PlaygroundAction(newData));
       if (res?.status_code == 200) {
         setTextBox(true);
-        setTextBoxValue(res?.data?.choices[0]?.text);
+        setTextBoxValue(res?.data?.choices[0]?.message?.content);
         setLoader(false);
         setData({ ...data, text: "", qatext: "" });
       } else {
@@ -227,8 +227,9 @@ const Playground = (props) => {
       : localStorage.getItem("type") === "anisql" ||
         localStorage.getItem("type") === "oraclesql" ||
         localStorage.getItem("type") === "postgresql"
-      ? `SELECT ${textBoxValue}`
+      ? ` ${textBoxValue}`
       : textBoxValue;
+  console.log(textansweraread, "textansweraread");
   return (
     <ProtectedRoute>
       <Seo title={`${localStorage.getItem("typename")} || Playground`} />
