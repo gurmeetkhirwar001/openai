@@ -40,6 +40,11 @@ const MegaMenuOne = () => {
           Use Cases
         </Link>
       </li>
+      <li className="nav-item dropdown mega-dropdown-sm">
+        <Link to={"/chat-with-ai"} className="nav-link">
+          Chat With AI
+        </Link>
+      </li>
       {/* End elements dropdown */}
 
       {/* End shop dropdown */}

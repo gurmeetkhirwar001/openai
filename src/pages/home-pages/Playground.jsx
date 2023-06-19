@@ -238,7 +238,7 @@ const Playground = (props) => {
         <div className="container-fluid">
           <div className="row">
             {/* <div className="col-sm-3 col-md-3"><Sidebar /></div> */}
-            <div className="col-sm-12 col-md-12 inner-div p-4">
+            <div className="col-sm-12 col-lg-12 col-md-6 inner-div p-4">
               <div className="d-flex justify-content-between align-items-center border-bottom p-2 pb-2">
                 <h4 className="">{localStorage.getItem("typename")}</h4>
                 <div className="d-flex justify-content-between align-items-center ">
@@ -295,35 +295,37 @@ const Playground = (props) => {
                     </li>
                   </ul>
                 </div>
-                {textBox && (
-                  <>
-                    <div className="d-flex justify-content-between align-items-center mt-50">
-                      <h4 className="fw-bold">Below is your answer</h4>
-                      <div className="">
-                        <div
-                          className=" ripple-btn"
-                          style={{ cursor: "pointer" }}
-                          onClick={() =>
-                            navigator.clipboard.writeText(textBoxValue)
-                          }
-                        >
-                          {<img src={copy} />}
-                        </div>
+              </div>
+            </div>
+            <div className="col-sm-12 col-lg-12 col-md-6 inner-div ">
+              {textBox && (
+                <>
+                  <div className="d-flex justify-content-between align-items-center mt-50">
+                    <h4 className="fw-bold">Below is your answer</h4>
+                    <div className="">
+                      <div
+                        className=" ripple-btn"
+                        style={{ cursor: "pointer" }}
+                        onClick={() =>
+                          navigator.clipboard.writeText(textBoxValue)
+                        }
+                      >
+                        {<img src={copy} />}
                       </div>
                     </div>
+                  </div>
 
-                    <textarea
-                      placeholder="Your Output*"
-                      className="text-area"
-                      name="message"
-                      ref={answertextarea}
-                      required
-                      value={textansweraread}
-                      disabled={true}
-                    ></textarea>
-                  </>
-                )}
-              </div>
+                  <textarea
+                    placeholder="Your Output*"
+                    className="text-area"
+                    name="message"
+                    ref={answertextarea}
+                    required
+                    value={textansweraread}
+                    disabled={true}
+                  ></textarea>
+                </>
+              )}
             </div>
           </div>
         </div>
